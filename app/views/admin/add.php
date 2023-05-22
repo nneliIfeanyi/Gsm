@@ -9,14 +9,43 @@
       <form action="<?php echo URLROOT; ?>/admin/add" method="post" enctype="multipart/form-data">
       <div class="form-group">
             <label>Category</label><br>
-            <select name="category">
+            <select class="custom-select" name="category" id="category">
                 <option value="smartphone">Smart Phone</option>
                 <option value="accessories">Accessories</option>
                 <option value="parts">Parts</option>
             </select>
         </div>
+        
+        <div class="form-group" id="fonecategory" style="display:block;">
+            <label>Sub-Category</label><br>
+            <select class="custom-select" name="sub_category">
+                <option disabled>Please Select</option>
+                <option value="ios">iPhone</option>
+                <option value="android">Android</option>
+                <option value="others">others</option>
+            </select>
+        </div>
+         <div class="form-group" id="subcategory" style="display:none;">
+            <label>Sub-Category</label><br>
+            <select class="custom-select" name="sub_category">
+                <option value="chargers">Chargers</option>
+                <option value="memory cards">Memory Card</option>
+                <option value="bluetooth">Bluetooth Devices</option>
+                <option value="power bank">Power Banks</option>
+            </select>
+        </div>
+
+        <div class="form-group" id="partscategory" style="display:none;">
+            <label>Sub-Category</label><br>
+            <select class="custom-select" name="sub_category">
+                <option value="screen">LCD</option>
+                <option value="panel">Panels</option>
+                <option value="downboard">Downboards</option>
+                <option value="battery">Batteries</option>
+            </select>
+        </div>
         <div class="form-group">
-            <label>Brand</label>
+            <label>Brand name</label>
             <input type="text" name="brand" class="form-control form-control-lg <?php echo (!empty($data['brand_err'])) ? 'is-invalid' : ''; ?>" value="<?php echo $data['brand']; ?>">
             <span class="invalid-feedback"><?php echo $data['brand_err']; ?></span>
         </div> 
@@ -64,5 +93,31 @@
 </div>
 </div>
 
-  
+<script type="text/javascript">
+    const category = document.querySelector('#category');
+    const fonecategory = document.querySelector('#fonecategory');
+    const subcategory = document.querySelector('#subcategory');
+    const partscategory = document.querySelector('#partscategory');
+    category.addEventListener('change', setWeather);
+
+     function setWeather() {
+    const choice = category.value;
+
+    if (choice === 'accessories') {
+
+      subcategory.style.display = 'block';
+      partscategory.style.display = 'none';
+      fonecategory.style.display = 'none';
+    
+    }else if (choice === 'smartphone') {
+        fonecategory.style.display = 'block';
+        subcategory.style.display = 'none';
+        partscategory.style.display = 'none';
+    }else if (choice === 'parts') {
+        partscategory.style.display = 'block';
+        subcategory.style.display = 'none';
+        fonecategory.style.display = 'none';
+    }
+}
+</script>  
 <?php require APPROOT . '/views/inc/footer.php'; ?>

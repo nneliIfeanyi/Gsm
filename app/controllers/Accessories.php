@@ -1,21 +1,21 @@
 <?php
   class Accessories extends Controller {
 
-    public $productModel;
+    public $accessoriesModel;
     public function __construct(){
-      $this->productModel = $this->model('Product');
+      $this->accessoriesModel = $this->model('Accessory');
     }
     
 
     //====INDEX PAGE VIEW DISPLAY
     public function index(){
-      $products = $this->productModel->getProduct();
+      $products = $this->accessoriesModel->allAccessories();
       $data = [
-        'title' => 'GSM',
+        'title' => 'All Accessories',
         'products' => $products
       ];
      
-      $this->view('pages/index', $data);
+      $this->view('accessories/index', $data);
     }
 
 

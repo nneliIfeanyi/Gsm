@@ -61,10 +61,21 @@ class User{
 
   
       // Get Product By ID
-    public function getById($id){
+    public function getProductById($id){
       $this->db->query("SELECT * FROM products WHERE id = :id");
 
       $this->db->bind(':id', $id);
+      
+      $row = $this->db->single();
+
+      return $row;
+    }
+
+      // Get User By ID
+    public function getUserById2(){
+      $this->db->query("SELECT * FROM products WHERE id = :id");
+
+      $this->db->bind(':id', $_SESSION['user_id']);
       
       $row = $this->db->single();
 

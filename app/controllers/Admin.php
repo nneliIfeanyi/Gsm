@@ -1,30 +1,39 @@
+
 <?php
 class Admin extends Controller {
   public $productModel;
+  public $userModel;
 
   public function __construct(){
       $this->productModel = $this->model('Product');
+       $this->userModel = $this->model('User');
   }
 
    //======================
 
    public function index(){
-    $products = $this->productModel->getProduct();
-    $data = [
-      'title' => 'All Products',
-      'products' => $products
-    ];
+ if(!isset($_SESSION['user_id'])){
+    redirect('users/login');
+    }else{
+      $products = $this->productModel->getProduct();
+      $data = [
+        'title' => 'All Products',
+        'products' => $products
+      ];
    
     $this->view('admin/index', $data);
+    }
+    
   }
 
   //======================
 
   public function show(){
-    $products = $this->productModel->getProduct();
+    $products = $this->productModel->getUserProduct();
     $data = [
       'title' => 'All Products',
-      'products' => $products
+      'products' => $products,
+      'user_id' => $_SESSION['user_id']
     ];
    
     $this->view('admin/show', $data);
@@ -169,4 +178,42 @@ class Admin extends Controller {
         redirect('admin/show');
       }
     }
+
+
+
+
+
+public function setting(){
+ if(!isset($_SESSION['user_id'])){
+    redirect('users/login');
+    }else{
+      $user = $this->userModel->getUserById2();
+      $data = [
+        'title' => '',
+        'user' => $user
+      ];
+   
+    $this->view('admin/setting', $data);
+    }
+    
+  }
+
+  public function logout(){
+     if(isset($_SESSION['user_id'])){
+      unset($_SESSION['user_id']);
+         redirect('users/login');
+      }
+
+      $data = [
+         'phone' => '',
+          'password' => '',
+          'phone_err' => '',
+          'password_err' => '',
+
+      ];
+
+      $this->view('users/login', $data);
+
+  }
+
 }

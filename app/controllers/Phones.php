@@ -7,6 +7,26 @@
     }
     
 
+    public function index(){
+      $products = $this->phoneModel->allphones();
+           if (!empty($products)) {
+      $data = [
+            'title' => 'All Phones',
+            'products' => $products
+          ];
+    }else{
+       flash('success', 'No results found');
+      $data = [
+            'title' => 'All Phones',
+            'products' => $products
+          ];
+    }
+
+     
+      $this->view('phones/index', $data);
+    }
+
+
     //====BRAND NEW PHONES VIEW DISPLAY
     public function new(){
       $products = $this->phoneModel->brandNew();

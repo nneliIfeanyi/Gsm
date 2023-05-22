@@ -1,37 +1,7 @@
 <?php require APPROOT . '/views/inc/header.php'; ?>
-<div class="mx-auto"><?php flash('login_success'); ?></div>
+<div class="mx-auto container text-center"><?php flash('login_success'); ?></div>
 
 <?php include APPROOT . '/views/inc/showcase.php'; ?>
-
-<!--Start Categories of The Month--> 
-<section class="container py-5">
-<div class="row text-center pt-3">
-<div class="col-lg-6 m-auto">
-<h1 class="h1">Categories</h1>
-<p>
-
-</p>
-</div>
-</div>
-<div class="row">
-<div class="col-12 col-md-4 p-5 mt-3">
-<a href="#"><img src="<?php echo URLROOT; ?>/img/spk10pro.png" class="img-fluid"></a>
-<h5 class="text-center mt-3 mb-3">SmartPhones</h5>
-<p class="text-center"><a href="<?=URLROOT?>/phones/new" class="btn btn-success">Go Shop</a></p>
-</div>
-<div class="col-12 col-md-4 p-5 mt-3">
-<a href="#"><img src="<?php echo URLROOT; ?>/img/img2.jpeg" class="img-fluid"></a>
-<h2 class="h5 text-center mt-3 mb-3">Accessories</h2>
-<p class="text-center"><a href="<?=URLROOT?>/accessories/index" class="btn btn-success">Go Shop</a></p>
-</div>
-<div class="col-12 col-md-4 p-5 mt-3">
-<a href="#"><img src="<?php echo URLROOT; ?>/img/lcd.jpg" class="img-fluid"></a>
-<h2 class="h5 text-center mt-3 mb-3">Repair Parts</h2>
-<p class="text-center"><a href="<?=URLROOT?>/parts/index" class="btn btn-success">Go Shop</a></p>
-</div>
-</div>
-</section>
-<!--End Categories of The Month -->
     <!-- Start Content -->
     <div class="container py-5">
         <div class="row">
@@ -103,7 +73,7 @@
                 </div>
                 <div class="row">
                 <?php foreach($data['products'] as $product) : ?>
-                    <div class="col-6 col-md-3">
+                    <div class="col-6 col col-md-3">
                         <div class="card mb-3 product-wap rounded-0">
                             <div class="card rounded-0">
                                 <img class="card-img rounded-0 img-fluid" src="<?php echo URLROOT . '/' . $product->img; ?>" style="height 80px;">

@@ -1,5 +1,5 @@
 <?php
-class Phone {
+class Accessory {
 
     private $db;
 
@@ -8,14 +8,14 @@ class Phone {
     }
 
 
- public function allphones(){
-      $this->db->query("SELECT * FROM products WHERE category = 'smartphone'");
+ public function allAccessories(){
+      $this->db->query("SELECT * FROM products WHERE category = 'accessories'");
         $results = $this->db->resultset();
   
         return $results;
     }
 
-
+/*
      // Get Product By Brand new
     public function brandNew(){
       $this->db->query("SELECT * FROM products WHERE cond_tion = 'brandnew'");
@@ -42,6 +42,6 @@ class Phone {
   
         return $results;
     }
-
+*/
 
 }

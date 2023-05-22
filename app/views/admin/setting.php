@@ -6,8 +6,7 @@
             <?php include APPROOT . '/views/admin/inc.php' ?>
 
             <div class="col-lg-9 text-center">
-                <h2>Welcome to <?=SITENAME?> seller page</h2>
-                <p>Showcase your products for sale</p>
+                <h2>My Profile</h2>
             </div>
         </div>
     </div>

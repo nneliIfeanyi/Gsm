@@ -1,5 +1,5 @@
 <?php require APPROOT . '/views/inc/header.php'; ?>
-
+<div class="container">
 <div class="row">
   <div class="col-md-6 mb-5 mx-auto">
     <div class="card card-body bg-light mt-5">
@@ -7,12 +7,12 @@
       <p>Please fill this form to register with us</p>
       <form action="<?php echo URLROOT; ?>/users/register" method="post">
         <div class="form-group">
-            <label>Name:<sup>*</label>
+            <label>Name:<sup>*</sup></label>
             <input type="text" name="name" class="form-control form-control-lg <?php echo (!empty($data['name_err'])) ? 'is-invalid' : ''; ?>" value="<?php echo $data['name']; ?>">
             <span class="invalid-feedback"><?php echo $data['name_err']; ?></span>
         </div> 
         <div class="form-group">
-            <label>Phone:<sup>*</label>
+            <label>Phone:<sup>*</sup></label>
             <input type="number" name="phone" class="form-control form-control-lg <?php echo (!empty($data['phone_err'])) ? 'is-invalid' : ''; ?>" value="<?php echo $data['phone']; ?>">
             <span class="invalid-feedback"><?php echo $data['phone_err']; ?></span>
         </div> 
@@ -43,5 +43,7 @@
       </form>
     </div>
   </div>
+</div>
+</div>
   
 <?php require APPROOT . '/views/inc/footer.php'; ?>

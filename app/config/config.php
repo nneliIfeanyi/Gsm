@@ -8,7 +8,7 @@
   // App Root
   define('APPROOT', dirname(dirname(__FILE__)));
   // URL Root
-  define('URLROOT', 'http://localhost/murada');
+  define('URLROOT', 'http://localhost/stanvic');
   // Site Name
-  define('SITENAME', 'sitename');
+  define('SITENAME', 'Stanvic');
  

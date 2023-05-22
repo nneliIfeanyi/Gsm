@@ -95,6 +95,16 @@ class Product {
         return $results;
       }
 
+ // Get per user Products
+    public function getUserProduct(){
+        $this->db->query("SELECT * FROM products WHERE s_id = :id AND seller = :user");
+        $this->db->bind(':id', $_SESSION['user_id']);
+        $this->db->bind(':user', $_SESSION['user_name']);
+        $results = $this->db->resultset();
+  
+        return $results;
+      }
+
 
       // Get Product By ID
     public function getById($id){

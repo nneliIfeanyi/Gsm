@@ -5,9 +5,9 @@
 <section class="bg-light">
 <div class="container pb-5">
 <div class="row">
-<div class="col-lg-5 mt-5">
+<div class="col-lg-5 mt-2">
 <div class="card mb-3">
-<img class="card-img img-fluid" src="<?= URLROOT. $data['product']->img ?>" alt="Card image cap" id="product-detail">
+<img class="card-img img-fluid" src="<?= URLROOT. '/'. $data['product']->img ?>" alt="Card image cap" id="product-detail">
 </div>
 <div class="row">
 <!--Start Controls-->
@@ -106,7 +106,7 @@ Third slide-->
 <div class="col-lg-7 mt-5">
 <div class="card">
 <div class="card-body">
-<h1 class="h2"><?= $data['product']->brand ?></h1>
+<h1 class="h3"><?= $data['product']->brand ?></h1>
 <ul class="list-inline">
 <li class="list-inline-item">
 <h6>Model :</h6>
@@ -129,14 +129,6 @@ Third slide-->
 </li>
 <li class="list-inline-item">
 <p class="text-muted"><strong><?= $data['product']->description ?></strong></p>
-</li>
-</ul>
-<ul class="list-inline">
-<li class="list-inline-item">
-<h6>Avaliable Colors :</h6>
-</li>
-<li class="list-inline-item">
-<p class="text-muted"><strong><?= $data['product']->color ?></strong></p>
 </li>
 </ul>
 <ul class="list-inline">

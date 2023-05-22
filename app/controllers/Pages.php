@@ -11,7 +11,7 @@
     public function index(){
       $products = $this->productModel->getProduct();
       $data = [
-        'title' => 'GSM',
+        'title' => 'All Categories',
         'products' => $products
       ];
      
@@ -27,27 +27,6 @@
       ];
 
       $this->view('pages/about', $data);
-    }
-
-
-
-     //====MARKET PAGE VIEW DISPLAY
-   public function market(){
-    $data = [
-      'title' => 'UNDER CONSTRUCTION',
-      'description' => 'This page is still under construction.'
-    ];
-      $this->view('pages/market', $data);
-    }
-
-
-     //====CONTACT PAGE VIEW DISPLAY
-   public function contact(){
-    $data = [
-      'title' => 'UNDER CONSTRUCTION',
-      'description' => 'This page is still under construction.'
-    ];
-      $this->view('pages/contact', $data);
     }
 
     

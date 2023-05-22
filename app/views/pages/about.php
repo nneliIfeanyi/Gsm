@@ -1,81 +1,45 @@
 <?php require APPROOT . '/views/inc/header.php'; ?>
 
-
-<section class="bg-success py-5">
-        <div class="container">
-            <div class="row align-items-center py-5">
-                <div class="col-md-8 text-white">
-                    <h1>About Us</h1>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                    </p>
-                </div>
-                <div class="col-md-4">
-                    <img src="assets/img/about-hero.svg" alt="About Hero">
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Close Banner -->
-
-    <!-- Start Section -->
-    <section class="container py-5">
-        <div class="row text-center pt-5 pb-3">
-            <div class="col-lg-6 m-auto">
-                <h1 class="h1">Our Services</h1>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                    Lorem ipsum dolor sit amet.
-                </p>
-            </div>
-        </div>
+    <!-- Start Content -->
+    <div class="container py-3">
         <div class="row">
 
-            <div class="col-md-6 col-lg-3 pb-5">
-                <div class="h-100 py-5 services-icon-wap shadow">
-                    <div class="h1 text-success text-center"><i class="fa fa-truck fa-lg"></i></div>
-                    <h2 class="h5 mt-4 text-center">Delivery Services</h2>
-                </div>
+            <div class="col-lg-3">
+                <h1 class="h2">About Us</h1>
+                <ul class="list-unstyled templatemo-accordion ">
+                    <li class="pb-1">
+                        <a class="collapsed d-flex justify-content-between h4 text-decoration-none" href="#">
+                            Who we are
+                            <i class="fa fa-fw fa-chevron-circle-down mt-1"></i>
+                        </a>
+                        <ul class="collapse show list-unstyled pl-3">
+                            <li><a class="text-decoration-none" href="#">Know Us</a></li>
+                        </ul>
+                    </li>
+                    <li class="pb-1">
+                        <a class="collapsed d-flex justify-content-between h4 text-decoration-none" href="#">
+                            Our Services
+                            <i class="pull-right fa fa-fw fa-chevron-circle-down mt-1"></i>
+                        </a>
+                        <ul id="collapseTwo" class="collapse list-unstyled pl-3">
+                            <li><a class="text-decoration-none" href="#">Delivery Services</a></li>
+                        </ul>
+                    </li>
+                    <li class="pb-1">
+                        <a class="collapsed d-flex justify-content-between h4 text-decoration-none" href="#">
+                            Promotions
+                            <i class="pull-right fa fa-fw fa-chevron-circle-down mt-1"></i>
+                        </a>
+                        <ul id="collapseThree" class="collapse list-unstyled pl-3">
+                            <li><a class="text-decoration-none" href="#">Discounts</a></li>
+                        </ul>
+                    </li>
+                </ul>
             </div>
 
-            <div class="col-md-6 col-lg-3 pb-5">
-                <div class="h-100 py-5 services-icon-wap shadow">
-                    <div class="h1 text-success text-center"><i class="fa fa-exchange"></i></div>
-                    <h2 class="h5 mt-4 text-center">Shipping & Return</h2>
-                </div>
-            </div>
-
-            <div class="col-md-6 col-lg-3 pb-5">
-                <div class="h-100 py-5 services-icon-wap shadow">
-                    <div class="h1 text-success text-center"><i class="fa fa-percent"></i></div>
-                    <h2 class="h5 mt-4 text-center">Promotion</h2>
-                </div>
-            </div>
-
-            <div class="col-md-6 col-lg-3 pb-5">
-                <div class="h-100 py-5 services-icon-wap shadow">
-                    <div class="h1 text-success text-center"><i class="fa fa-user"></i></div>
-                    <h2 class="h5 mt-4 text-center">24 Hours Service</h2>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- End Section -->
-
-    <!-- Start Brands -->
-    <section class="bg-light py-5">
-        <div class="container my-4">
-            <div class="row text-center py-3">
-                <div class="col-lg-6 m-auto">
-                    <h1 class="h1">Our Brands</h1>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                        Lorem ipsum dolor sit amet.
-                    </p>
-                </div>
-                <div class="col-lg-9 m-auto tempaltemo-carousel">
+            <div class="col-lg-9">
+                
+                <div class="m-auto tempaltemo-carousel">
                     <div class="row d-flex flex-row">
                         <!--Controls-->
                         <div class="col-1 align-self-center">
@@ -141,7 +105,8 @@
                 </div>
             </div>
         </div>
-    </section>
     <!--End Brands-->
+</div>
+</div>
   
 <?php require APPROOT . '/views/inc/footer.php';?>

@@ -14,19 +14,19 @@
 <div class="flex-fill">
 <ul class="nav navbar-nav d-flex justify-content-between mx-lg-auto">
 <li class="nav-item">
-<a class="nav-link" href="<?=URLROOT?>/pages/index">Home</a>
+<a class="nav-link" href="<?=URLROOT?>/pages">Home</a>
 </li>
 <li class="nav-item">
-<a class="nav-link" href="<?=URLROOT?>/phones/new">Phones</a>
+<a class="nav-link" href="<?=URLROOT?>/phones">Phones</a>
 </li>
 <li class="nav-item">
 <a class="nav-link" href="<?=URLROOT?>/parts">Parts</a>
 </li>
 <li class="nav-item">
-<a class="nav-link" href="<?=URLROOT?>/accessories/">Accessories</a>
+<a class="nav-link" href="<?=URLROOT?>/accessories">Accessories</a>
 </li>
 <li class="nav-item">
-<a class="nav-link" href="<?=URLROOT?>/admin/index">Account</a>
+<a class="nav-link" href="<?=URLROOT?>/admin">Account</a>
 </li>
 
 <li class="nav-item">

@@ -134,7 +134,7 @@ class Users extends Controller{
           // User Authenticated!
           $this->createUserSession($loggedInUser);
           flash('login_success', 'You are Logged in.');
-          redirect('admin/add');
+          redirect('admin');
          
         } else {
           $data['password_err'] = 'Password incorrect.';
@@ -179,10 +179,10 @@ class Users extends Controller{
 
 
   public function view_p($id){
-    $show = $this->userModel->getById($id);
+    $products = $this->userModel->getProductById($id);
     
     $data = [
-      'product' => $show,
+      'product' => $products,
     ];
    
     $this->view('users/view_p', $data);
