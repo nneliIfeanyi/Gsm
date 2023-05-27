@@ -7,7 +7,7 @@
       <p>Please fill this form to register with us</p>
       <form action="<?php echo URLROOT; ?>/users/register" method="post">
         <div class="form-group">
-            <label>Name:<sup>*</sup></label>
+            <label>Business Name:<sup>*</sup></label>
             <input type="text" name="name" class="form-control form-control-lg <?php echo (!empty($data['name_err'])) ? 'is-invalid' : ''; ?>" value="<?php echo $data['name']; ?>">
             <span class="invalid-feedback"><?php echo $data['name_err']; ?></span>
         </div> 
@@ -17,7 +17,7 @@
             <span class="invalid-feedback"><?php echo $data['phone_err']; ?></span>
         </div> 
         <div class="form-group">
-            <label>Address:<sup>*</sup></label>
+            <label>Business Address:<sup>*</sup></label>
             <input type="text" name="address" class="form-control form-control-lg <?php echo (!empty($data['address_err'])) ? 'is-invalid' : ''; ?>" value="<?php echo $data['address']; ?>">
             <span class="invalid-feedback"><?php echo $data['address_err']; ?></span>
         </div>    

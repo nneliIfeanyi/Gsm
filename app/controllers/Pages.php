@@ -22,8 +22,8 @@
      //====ABOUT PAGE VIEW DISPLAY
     public function about(){
       $data = [
-        'title' => 'About Us',
-        'description' => 'An eCommerce website for smartPhones, repairs and accessories.'
+        'title' => 'Under Construction',
+        'description' => 'This view is still under construction.'
       ];
 
       $this->view('pages/about', $data);

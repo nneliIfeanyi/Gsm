@@ -27,9 +27,7 @@
                     
                     <div class="mt-2 text-center"><?= flash('success')?></div>
                 </div>
-
                 <?php include APPROOT . '/views/inc/sample.php'; ?>
-
             </div>
         </div>
     </div>

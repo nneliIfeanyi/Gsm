@@ -8,6 +8,7 @@
             <div class="row">
             <div class="mt-2 text-center"><?= flash('success')?></div>
                 <h4 class="display-6 text-center">All Products</h4>
+                 <div class="mt-2 text-center"><?= flash('msg')?></div>
             <?php foreach($data['products'] as $product) : ?>
                  <div class="col-md-4">
                     <div class="card mb-4 product-wap rounded-0">

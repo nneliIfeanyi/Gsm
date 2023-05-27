@@ -20,6 +20,7 @@ class Users extends Controller{
           'address' => trim($_POST['address']),
           'password' => trim($_POST['password']),
           'confirm_password' => trim($_POST['confirm_password']),
+          'level' => 'one',
           'name_err' => '',
           'phone_err' => '',
           'address_err' => '',
@@ -158,6 +159,61 @@ class Users extends Controller{
         $this->view('users/login', $data);
       };
       }
+
+      public function login2(){
+    if($this->isLoggedIn()){
+        flash('login_success', 'You are Logged in.');
+        redirect('pages');
+      }
+    // Check if POST
+    if($_SERVER['REQUEST_METHOD'] == 'POST'){
+      // Sanitize POST
+      $_POST  = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+      
+      $data = [       
+        'phone' => trim($_POST['phone']),
+        'password' => trim($_POST['password']),        
+        'phone_err' => '',
+        'password_err' => '',       
+      ];
+
+      // Check for email
+      if(empty($data['phone'])){
+        $data['phone_err'] = 'Please enter phone number.';
+      }else if(empty($data['password'])){
+        $data['password_err'] = 'Please enter password.';
+      }else if(!$this->userModel->findUserByPhone($data['phone'])){
+        $data['phone_err'] = 'This number is not registered.';
+      } else {
+        $loggedInUser = $this->userModel->login($data['phone'], $data['password']);
+        if($loggedInUser){
+          // User Authenticated!
+          $this->createUserSession($loggedInUser);
+          flash('login_success', 'You are Logged in.');
+          redirect('pages');
+         
+        } else {
+          $data['password_err'] = 'Password incorrect.';
+          // Load View
+          $this->view('users/login2', $data);
+        }
+      }
+      $this->view('users/login2', $data);
+      } else {
+       // If NOT a POST
+
+        // Init data
+         $data = [
+          'phone' => '',
+          'password' => '',
+          'phone_err' => '',
+          'password_err' => '',
+        ];
+
+        // Load View
+        $this->view('users/login2', $data);
+      };
+      }
   // Check Logged In
   public function isLoggedIn(){
     if(isset($_SESSION['user_id'])){
@@ -180,9 +236,14 @@ class Users extends Controller{
 
   public function view_p($id){
     $products = $this->userModel->getProductById($id);
+    $seller = $this->userModel->getUserById($products->s_id);
+    $sellerGoods = $this->userModel->allSellerGoods($products->s_id);
     
     $data = [
       'product' => $products,
+      'seller' => $seller,
+      'sellerGoods' => $sellerGoods,
+      
     ];
    
     $this->view('users/view_p', $data);
@@ -191,42 +252,46 @@ class Users extends Controller{
 
 
     public function review(){
+
       if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-        $brand = ($_POST['brand']);
-        $model = ($_POST['model']);
-        $title = $brand . ' ' . $model;
+        $_POST  = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
         
         $data = [
-          'userId' => ($_POST['u_id']),
-          'user' => ($_POST['user']),
-          'id' => ($_POST['id']),
-          'title' => $title, 
-          'description' => ($_POST['desc']),
-          'price' => ($_POST['price']),
-          'color' => ($_POST['color']),
-          'image' => ($_POST['picture']),
-          'quantity' => ($_POST['quantity']),
-          'condition' => ($_POST['condition']),
+          'p_id' => trim($_POST['id']),
+          'brand' => trim($_POST['brand']),
+          'model' => trim($_POST['model']),
+          'category' => trim($_POST['category']),
+          'sub_category' => trim($_POST['sub_category']),
+          'desc' => trim($_POST['desc']),
+          'picture' => trim($_POST['picture']),
+          'price' => trim($_POST['price']),
+          'color' => trim($_POST['color']),
+          'condition' => trim($_POST['condition']),
+          'quantity' => trim($_POST['quantity']),
+          'user_name' => $_SESSION['user_name'],
+          'user_id' => $_SESSION['user_id'],
+          'status' => '',
          
         ];
 
-        $this->view('users/review', $data);
 
-
-       /* if($this->productModel->addToCart($data)){
+       if($this->productModel->addToCart($data)){
           flash('cart_success', 'Added to cart');
-          redirect('users/cart');
+          redirect('users/review');
         } else {
           die('Something went wrong');
-        }*/
+        }
        
-      }else{
-        redirect('pages/index');
-      }
-      
       }
 
+      $data = [
 
+        
+        
+      ];
+
+      $this->view('users/review', $data);
+  }
     
     public function success(){
 

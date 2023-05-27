@@ -11,13 +11,15 @@ class User{
     // Add User / Register
     public function register($data){
         // Prepare Query
-        $this->db->query('INSERT INTO users (name,phone,password) 
-        VALUES (:name, :phone, :password)');
+        $this->db->query('INSERT INTO users (name,phone,address,password,level) 
+        VALUES (:name, :phone, :address, :password, :level)');
   
         // Bind Values
         $this->db->bind(':name', $data['name']);
         $this->db->bind(':phone', $data['phone']);
+        $this->db->bind(':address', $data['address']);
         $this->db->bind(':password', $data['password']);
+        $this->db->bind(':level', $data['level']);
         
         //Execute
         if($this->db->execute()){
@@ -41,6 +43,62 @@ class User{
         } else {
           return false;
         }
+      }
+
+
+       public function posted(){
+        $this->db->query("SELECT * FROM products WHERE seller = :name");
+        $this->db->bind(':name', $_SESSION['user_name']);
+  
+        $row = $this->db->single();
+  
+        //Check Rows
+        if($this->db->rowCount() > 0){
+          return true;
+        } else {
+          return false;
+        }
+        
+      }
+
+      public function posted2(){
+        $this->db->query("SELECT * FROM products WHERE seller = :name");
+        $this->db->bind(':name', $_SESSION['user_name']);
+  
+        $row = $this->db->single();
+  
+        //Check Rows
+        if($this->db->rowCount() > 9){
+          return true;
+        } else {
+          return false;
+        }
+        
+      }
+
+      public function posted3(){
+        $this->db->query("SELECT * FROM products WHERE seller = :name");
+        $this->db->bind(':name', $_SESSION['user_name']);
+  
+        $row = $this->db->single();
+  
+        //Check Rows
+        if($this->db->rowCount() > 50){
+          return true;
+        } else {
+          return false;
+        }
+        
+      }
+
+
+          // Find USer BY level
+    public function userLevel(){
+        $this->db->query("SELECT * FROM users WHERE name = :name");
+        $this->db->bind(':name', $_SESSION['user_name']);
+  
+        $row = $this->db->single();
+        return $row;
       }
 
 
@@ -73,7 +131,7 @@ class User{
 
       // Get User By ID
     public function getUserById2(){
-      $this->db->query("SELECT * FROM products WHERE id = :id");
+      $this->db->query("SELECT * FROM products WHERE s_id = :id");
 
       $this->db->bind(':id', $_SESSION['user_id']);
       
@@ -82,13 +140,23 @@ class User{
       return $row;
     }
 
-
+ 
           // Find User By ID
     public function getUserById($id){
       $this->db->query("SELECT * FROM users WHERE id = :id");
       $this->db->bind(':id', $id);
 
       $row = $this->db->single();
+
+      return $row;
+    }
+
+
+    public function allSellerGoods($id){
+      $this->db->query("SELECT * FROM products WHERE s_id = :id");
+      $this->db->bind(':id', $id);
+
+      $row = $this->db->resultset();
 
       return $row;
     }

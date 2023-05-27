@@ -32,7 +32,7 @@
 </div>
 </div>
 <div class="mx-auto col-md-4 col-lg-6 col-6">
-<img class="" src="<?php echo URLROOT; ?>/img/img2.jpeg" alt="" height="100px">
+<img class="" src="<?php echo URLROOT; ?>/img/dnl.jpeg" alt="" height="100px">
 </div>
 </div>
 </div>

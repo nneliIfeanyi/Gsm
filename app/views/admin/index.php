@@ -6,7 +6,7 @@
             <?php include APPROOT . '/views/admin/inc.php' ?>
 
             <div class="col-lg-9 text-center">
-                <h2>Welcome to <?=SITENAME?> seller page</h2>
+                <h2>Welcome  <span class="text-success"><?=$_SESSION['user_name']?></span></h2>
                 <p>Showcase your products for sale</p>
             </div>
         </div>

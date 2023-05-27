@@ -28,66 +28,66 @@
 
 
     //====BRAND NEW PHONES VIEW DISPLAY
-    public function new(){
-      $products = $this->phoneModel->brandNew();
+    public function android(){
+      $products = $this->phoneModel->android();
            if (!empty($products)) {
       $data = [
-            'title' => 'All Brand New',
+            'title' => 'Android Phones',
             'products' => $products
           ];
     }else{
        flash('success', 'No results found');
       $data = [
-            'title' => 'All Brand New',
+            'title' => 'Android Phones',
             'products' => $products
           ];
     }
 
      
-      $this->view('phones/new', $data);
+      $this->view('phones/android', $data);
     }
 
 
      //====LONDON USED PHONES PAGE VIEW DISPLAY
-    public function londonused(){
+    public function iphones(){
      
-      $products = $this->phoneModel->londonused();
+      $products = $this->phoneModel->iphones();
           if (!empty($products)) {
       $data = [
-            'title' => 'London Used',
+            'title' => 'iPhones',
             'products' => $products
           ]; 
     }else{
        flash('success', 'No results found');
       $data = [
-            'title' => 'London Used',
+            'title' => 'iPhones',
             'products' => $products
           ];
     }
 
 
-      $this->view('phones/londonused', $data);
+      $this->view('phones/iphones', $data);
     }
 
 
 
      //====SECOND HAND PAGE VIEW DISPLAY
-   public function secondhand(){
-    $products = $this->phoneModel->secondhand();
+   public function others(){
+    $products = $this->phoneModel->button();
     if (!empty($products)) {
       $data = [
-            'title' => 'Second Hand Phones',
+            'title' => 'Button Phones',
             'products' => $products
           ];
     }else{
        flash('success', 'No results found');
       $data = [
-            'title' => 'Second Hand Phones',
+            'title' => 'Button Phones',
             'products' => $products
           ];
     }
      
-      $this->view('phones/secondhand', $data);
+      $this->view('phones/others', $data);
     }
 
 

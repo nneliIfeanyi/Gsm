@@ -8,11 +8,12 @@ class Product {
     }
 
     public function add_product($data){
-        $this->db->query('INSERT INTO products (brand,model,description,category,price,img,color,cond_tion,s_id,seller) VALUES(:brand,:model,:description,:category,:price,:img,:color,:condition,:user_id,:user_name)');
+        $this->db->query('INSERT INTO products (brand,model,description,category,sub_cate,price,img,color,cond_tion,s_id,seller) VALUES(:brand,:model,:description,:category,:sub_cate,:price,:img,:color,:condition,:user_id,:user_name)');
         $this->db->bind(':brand', $data['brand']);
         $this->db->bind(':model', $data['model']);
         $this->db->bind(':description', $data['description']);
         $this->db->bind(':category', $data['category']);
+         $this->db->bind(':sub_cate', $data['sub_cate']);
         $this->db->bind(':price', $data['price']);
         $this->db->bind(':img', $data['image']);
         $this->db->bind(':color', $data['color']);
@@ -115,6 +116,30 @@ class Product {
       $row = $this->db->single();
 
       return $row;
+    }
+
+
+    public function addToCart($data){
+        $this->db->query('INSERT INTO cart (p_id,brand,model,description,category,sub_cate,price,img,color,cond_tion,quantity,user_id,user_name) VALUES(:id,:brand,:model,:description,:category,:sub_cate,:price,:img,:color,:condition,:quantity,:user_id,:user_name)');
+        $this->db->bind(':id', $data['p_id']);
+        $this->db->bind(':brand', $data['brand']);
+        $this->db->bind(':model', $data['model']);
+        $this->db->bind(':description', $data['desc']);
+        $this->db->bind(':category', $data['category']);
+         $this->db->bind(':sub_cate', $data['sub_category']);
+        $this->db->bind(':price', $data['price']);
+        $this->db->bind(':img', $data['picture']);
+        $this->db->bind(':color', $data['color']);
+        $this->db->bind(':condition', $data['condition']);
+        $this->db->bind(':quantity', $data['quantity']);
+        $this->db->bind(':user_id', $data['user_id']);
+        $this->db->bind(':user_name', $data['user_name']);
+        
+        if ($this->db->execute()) {
+            return true;
+        }else{
+            return false;
+        }
     }
 
 

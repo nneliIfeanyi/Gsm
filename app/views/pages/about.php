@@ -5,8 +5,8 @@
         <div class="row">
 
             <div class="col-lg-3">
-                <h1 class="h2">About Us</h1>
-                <ul class="list-unstyled templatemo-accordion ">
+                <h1 class="h2 text-center">About Us</h1>
+               <!-- <ul class="list-unstyled templatemo-accordion ">
                     <li class="pb-1">
                         <a class="collapsed d-flex justify-content-between h4 text-decoration-none" href="#">
                             Who we are
@@ -34,10 +34,12 @@
                             <li><a class="text-decoration-none" href="#">Discounts</a></li>
                         </ul>
                     </li>
-                </ul>
+                </ul>-->
             </div>
 
-            <div class="col-lg-9">
+            <div class="col-lg-9 text-center">
+                  <h2 class="text-success"> <?=$data['title']?></h2>
+                    <p class="lead"><?=$data['description']?></p>
                 
                 <div class="m-auto tempaltemo-carousel">
                     <div class="row d-flex flex-row">

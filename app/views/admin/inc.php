@@ -8,9 +8,25 @@
                             <i class="fa fa-fw fa-chevron-circle-down mt-1"></i>
                         </a>
                         <ul class="collapse show list-unstyled pl-3">
-                            <li><a class="text-decoration-none fs-6" href="<?=URLROOT?>/admin/add">Add</a></li>
-                            <!--<li><a class="text-decoration-none fs-6" href="<?=URLROOT?>/admin/add">Accessories</a></li>
-                            <li><a class="text-decoration-none fs-6" href="<?=URLROOT?>/admin/add">Parts</a></li>-->
+                        
+                            <?php
+                            if ($data['access']->level === 'three') {
+                                ?>
+                                <li><a class="text-decoration-none fs-6" href="<?=URLROOT?>/admin/add">Phone</a></li>
+                                <li><a class="text-decoration-none fs-6" href="<?=URLROOT?>/admin/add2">Accessories</a></li>
+                                <li><a class="text-decoration-none fs-6" href="<?=URLROOT?>/admin/add3">Parts</a></li>
+                                <?php 
+                            }else{
+
+                                 ?>
+                                <li><a class="text-decoration-none fs-6" href="<?=URLROOT?>/admin/add">Phone</a></li>
+                                <li><a class="text-decoration-none fs-6" href="#">Accessories</a></li>
+                                <li><a class="text-decoration-none fs-6" href="<?=URLROOT?>/admin/add3">Parts</a></li>
+                                <?php 
+
+                            }
+
+                            ?>
                         </ul>
                     </li>
                     <li class="pb-2">
@@ -28,7 +44,9 @@
                             <i class="pull-right fa fa-fw fa-chevron-circle-down mt-1"></i>
                         </a>
                         <ul id="collapseThree" class="collapse list-unstyled pl-3">
-                           <li><a class="text-decoration-none fs-6" href="<?=URLROOT?>/admin/orders">My Orders</a></li> 
+                           <li><a class="text-decoration-none fs-6" href="<?=URLROOT?>/orders/cart">My Cart</a></li> 
+                           <li><a class="text-decoration-none fs-6" href="<?=URLROOT?>/orders/processing">Processing</a></li> 
+                           <li><a class="text-decoration-none fs-6" href="<?=URLROOT?>/orders/completed">Completed</a></li> 
                         </ul>
                     </li>
 
@@ -39,7 +57,6 @@
                         </a>
                         <ul id="collapseThree" class="collapse list-unstyled pl-3">
                            <li><a class="text-decoration-none fs-6" href="<?=URLROOT?>/admin/setting">My Profile</a></li>
-                           <li><a class="text-decoration-none fs-6" href="<?=URLROOT?>/admin/editprofile">Edit Profile</a></li>
                            <li><a class="text-decoration-none fs-6" href="<?=URLROOT?>/admin/logout">Logout</a></li> 
                         </ul>
                     </li>

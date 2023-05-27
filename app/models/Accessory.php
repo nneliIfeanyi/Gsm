@@ -15,33 +15,40 @@ class Accessory {
         return $results;
     }
 
-/*
-     // Get Product By Brand new
-    public function brandNew(){
-      $this->db->query("SELECT * FROM products WHERE cond_tion = 'brandnew'");
+     public function charger(){
+      $this->db->query("SELECT * FROM products WHERE sub_cate = 'chargers' ");
         $results = $this->db->resultset();
   
         return $results;
     }
 
 
-     // Get Product By second hand
-    public function secondhand(){
-      $this->db->query("SELECT * FROM products WHERE cond_tion = 'secondhand'");
+     public function memory(){
+      $this->db->query("SELECT * FROM products WHERE sub_cate = 'memory' ");
         $results = $this->db->resultset();
   
         return $results;
     }
 
 
-
-     // Get Product By london used
-    public function londonused(){
-      $this->db->query("SELECT * FROM products WHERE cond_tion = 'londonused'");
+     public function powers(){
+      $this->db->query("SELECT * FROM products WHERE sub_cate = 'power' ");
         $results = $this->db->resultset();
   
         return $results;
     }
-*/
 
+     public function ba3(){
+      $this->db->query("SELECT * FROM products WHERE sub_cate = 'batteries' ");
+        $results = $this->db->resultset();
+  
+        return $results;
+    }
+
+     public function bluetooth(){
+      $this->db->query("SELECT * FROM products WHERE sub_cate = 'bluetooth' ");
+        $results = $this->db->resultset();
+  
+        return $results;
+    }
 }

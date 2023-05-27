@@ -26,7 +26,7 @@
 <a class="nav-link" href="<?=URLROOT?>/accessories">Accessories</a>
 </li>
 <li class="nav-item">
-<a class="nav-link" href="<?=URLROOT?>/admin">Account</a>
+<a class="nav-link" href="<?=URLROOT?>/admin">Sell</a>
 </li>
 
 <li class="nav-item">

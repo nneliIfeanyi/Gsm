@@ -47,20 +47,20 @@
         <?php include APPROOT . '/views/admin/inc.php' ?>
         <div class="col-md-9 mb-5 mx-auto">
 
-        <h2 class="text-center mt-2">Add Phone</h2>
+        <h2 class="text-center mt-2">Add Phone parts</h2>
         <div class="card card-body bg-light mt-3">
       <p>Please use the form below to add product for sell</p>
-      <form action="<?php echo URLROOT; ?>/admin/add" method="post" enctype="multipart/form-data">
-        
+      <form action="<?php echo URLROOT; ?>/admin/add3" method="post" enctype="multipart/form-data">
+
         <div class="form-group">
             <label>Category</label><br>
             <select class="custom-select" name="sub_category">
-                <option value="ios">iPhone</option>
-                <option value="android">Android</option>
-                <option value="others">others</option>
+                <option value="screen">LCD</option>
+                <option value="panel">Panels</option>
+                <option value="downboard">Downboards</option>
+                <option value="battery">Batteries</option>
             </select>
         </div>
-        
         <div class="form-group">
             <label>Brand name</label>
             <input type="text" name="brand" class="form-control form-control-lg <?php echo (!empty($data['brand_err'])) ? 'is-invalid' : ''; ?>" value="<?php echo $data['brand']; ?>">

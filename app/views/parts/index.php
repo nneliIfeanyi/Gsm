@@ -4,7 +4,7 @@
     <div class="container py-5">
         <div class="row">
 
-           <?php include APPROOT . '/views/parts/inc.php' ?>
+          <?php include APPROOT . '/views/inc/nav.php'; ?>
 
             <div class="col-lg-9">
                 <div class="row">
