@@ -47,43 +47,13 @@ class User{
 
 
        public function posted(){
-        $this->db->query("SELECT * FROM products WHERE seller = :name");
+        $this->db->query("SELECT * FROM products WHERE seller = :name AND category = 'smartphone' ");
         $this->db->bind(':name', $_SESSION['user_name']);
   
         $row = $this->db->single();
   
         //Check Rows
         if($this->db->rowCount() > 0){
-          return true;
-        } else {
-          return false;
-        }
-        
-      }
-
-      public function posted2(){
-        $this->db->query("SELECT * FROM products WHERE seller = :name");
-        $this->db->bind(':name', $_SESSION['user_name']);
-  
-        $row = $this->db->single();
-  
-        //Check Rows
-        if($this->db->rowCount() > 9){
-          return true;
-        } else {
-          return false;
-        }
-        
-      }
-
-      public function posted3(){
-        $this->db->query("SELECT * FROM products WHERE seller = :name");
-        $this->db->bind(':name', $_SESSION['user_name']);
-  
-        $row = $this->db->single();
-  
-        //Check Rows
-        if($this->db->rowCount() > 50){
           return true;
         } else {
           return false;

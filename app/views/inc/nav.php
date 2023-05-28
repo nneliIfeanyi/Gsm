@@ -34,6 +34,11 @@
                             <li><a class="text-decoration-none fs-6" href="<?=URLROOT?>/parts/lcd">Lcd/screen</a></li>
                             <li><a class="text-decoration-none fs-6" href="<?=URLROOT?>/parts/panel">Panel/motherboard</a></li>
                             <li><a class="text-decoration-none fs-6" href="<?=URLROOT?>/parts/downboard">Downboard</a></li>
+                            <li><a class="text-decoration-none fs-6" href="<?=URLROOT?>/parts/camera">Camera</a></li>
+                            <li><a class="text-decoration-none fs-6" href="<?=URLROOT?>/parts/fingerprint">Finger Print</a></li>
+                            <li><a class="text-decoration-none fs-6" href="<?=URLROOT?>/parts/pwrflex">Power Flex</a></li>
+                            <li><a class="text-decoration-none fs-6" href="<?=URLROOT?>/parts/others">Others</a></li>
+                            <li><a class="text-decoration-none fs-6" href="<?=URLROOT?>/parts/tools">Tools</a></li>
                         </ul>
                     </li>
                 </ul>

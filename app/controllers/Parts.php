@@ -27,67 +27,167 @@
     }
 
 
-    //====BRAND NEW PHONES VIEW DISPLAY
-    public function new(){
-      $products = $this->phoneModel->brandNew();
+    //====
+    public function lcd(){
+      $products = $this->partsModel->screen();
            if (!empty($products)) {
       $data = [
-            'title' => 'All Brand New',
+            'title' => 'Parts | screen',
             'products' => $products
           ];
     }else{
        flash('success', 'No results found');
       $data = [
-            'title' => 'All Brand New',
+            'title' => 'Parts | screen',
             'products' => $products
           ];
     }
 
      
-      $this->view('phones/new', $data);
+      $this->view('parts/lcd', $data);
     }
 
 
-     //====LONDON USED PHONES PAGE VIEW DISPLAY
-    public function londonused(){
+     //====
+    public function panel(){
      
-      $products = $this->phoneModel->londonused();
+      $products = $this->partsModel->motherboard();
           if (!empty($products)) {
       $data = [
-            'title' => 'London Used',
+            'title' => 'Parts | Panel',
             'products' => $products
           ]; 
     }else{
        flash('success', 'No results found');
       $data = [
-            'title' => 'London Used',
+            'title' => 'Parts | Panel',
             'products' => $products
           ];
     }
 
 
-      $this->view('phones/londonused', $data);
+      $this->view('parts/panel', $data);
     }
 
 
 
-     //====SECOND HAND PAGE VIEW DISPLAY
-   public function secondhand(){
-    $products = $this->phoneModel->secondhand();
+     //====
+   public function downboard(){
+    $products = $this->partsModel->downboard();
     if (!empty($products)) {
       $data = [
-            'title' => 'Second Hand Phones',
+            'title' => 'Parts | Downboard',
             'products' => $products
           ];
     }else{
        flash('success', 'No results found');
       $data = [
-            'title' => 'Second Hand Phones',
+            'title' => 'Parts | Downboard',
             'products' => $products
           ];
     }
      
-      $this->view('phones/secondhand', $data);
+      $this->view('parts/downboard', $data);
+    }
+
+
+
+     //====
+   public function camera(){
+    $products = $this->partsModel->camera();
+    if (!empty($products)) {
+      $data = [
+            'title' => 'Parts | Cameras',
+            'products' => $products
+          ];
+    }else{
+       flash('success', 'No results found');
+      $data = [
+            'title' => 'Parts | Cameras',
+            'products' => $products
+          ];
+    }
+     
+      $this->view('parts/camera', $data);
+    }
+
+
+    //====
+   public function pwrflex(){
+    $products = $this->partsModel->pwrflex();
+    if (!empty($products)) {
+      $data = [
+            'title' => 'Parts | Power Flex',
+            'products' => $products
+          ];
+    }else{
+       flash('success', 'No results found');
+      $data = [
+            'title' => 'Parts | Power Flex',
+            'products' => $products
+          ];
+    }
+     
+      $this->view('parts/pwrflex', $data);
+    }
+
+
+    //====
+   public function fingerprint(){
+    $products = $this->partsModel->fingerprint();
+    if (!empty($products)) {
+      $data = [
+            'title' => 'Parts | Finger Print',
+            'products' => $products
+          ];
+    }else{
+       flash('success', 'No results found');
+      $data = [
+            'title' => 'Parts | Finger Print',
+            'products' => $products
+          ];
+    }
+     
+      $this->view('parts/fingerprint', $data);
+    }
+
+
+    //====
+   public function others(){
+    $products = $this->partsModel->others();
+    if (!empty($products)) {
+      $data = [
+            'title' => 'Batteries, Back cover, Frame, Srew, etc..',
+            'products' => $products
+          ];
+    }else{
+       flash('success', 'No results found');
+      $data = [
+            'title' => 'Batteries, Back cover, Frame, Srew, etc..',
+            'products' => $products
+          ];
+    }
+     
+      $this->view('parts/others', $data);
+    }
+
+
+    public function tools(){
+    $products = $this->partsModel->tools();
+    if (!empty($products)) {
+      $data = [
+            'title' => 'Repair Tools',
+            'products' => $products
+          ];
+    }else{
+       flash('success', 'No results found');
+      $data = [
+            'title' => 'Repair Tools',
+            'products' => $products
+          ];
+    }
+     
+      $this->view('parts/tools', $data);
     }
 
 

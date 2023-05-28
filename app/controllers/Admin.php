@@ -52,6 +52,7 @@ class Admin extends Controller {
 //======================
 
   public function add(){
+     $access = $this->userModel->userLevel();
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       $_POST = filter_input_array(INPUT_POST, FILTER_DEFAULT);
       $image_file = $_FILES['picture']['name'];
@@ -80,6 +81,15 @@ class Admin extends Controller {
         'move'  =>  move_uploaded_file($_FILES['picture']['tmp_name'],$image_folder)
       ]; 
 
+      if ($access->level == 'two' || 'one' && $_POST['sub_category'] == 'ios') {
+       flash('msg', 'Only level 3 users can post iphones');
+       redirect('admin/add');
+      }elseif ($access->level == 'two' || 'one' && $_POST['condition'] == 'brandnew') {
+       flash('msg', 'Only level 3 users can post Brandnew phones');
+       redirect('admin/add');
+      }else{
+
+
       if($this->productModel->add_product($data)){
         move_uploaded_file($_FILES['picture']['tmp_name'],$image_folder);
         flash('success', 'Add Product Successfull');
@@ -87,12 +97,14 @@ class Admin extends Controller {
       } else {
         die('Something went wrong');
       }
+
+      }
    
       }else{
         if(!isset($_SESSION['user_id'])){
           redirect('users/login');
         }
-        $access = $this->userModel->userLevel();
+       
         $data = [
           'access' => $access,
           'category' => '',
@@ -117,9 +129,9 @@ class Admin extends Controller {
 //===============================
 
 
-    //======================
-
+    //========================FOR ACCESSORIES
   public function add2(){
+    $access = $this->userModel->userLevel();
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       $_POST = filter_input_array(INPUT_POST, FILTER_DEFAULT);
       $image_file = $_FILES['picture']['name'];
@@ -148,6 +160,12 @@ class Admin extends Controller {
         'move'  =>  move_uploaded_file($_FILES['picture']['tmp_name'],$image_folder)
       ]; 
 
+      if ($access->level == 'two' || 'one') {
+       flash('msg', 'ACCESS DENIED');
+       redirect('admin/add2');
+      }else{
+
+
       if($this->productModel->add_product($data)){
         move_uploaded_file($_FILES['picture']['tmp_name'],$image_folder);
         flash('success', 'Add Product Successfull');
@@ -155,12 +173,15 @@ class Admin extends Controller {
       } else {
         die('Something went wrong');
       }
+
+      }
    
+
+   //=======IF NOT A POST REQUEST==========//////
       }else{
         if(!isset($_SESSION['user_id'])){
           redirect('users/login');
         }
-        $access = $this->userModel->userLevel();
         $data = [
           'access' => $access,
           'category' => '',
@@ -182,9 +203,9 @@ class Admin extends Controller {
         $this->view('admin/add2', $data);
         }
     }
-//===============================
+//===============================ACCESSORIES ENDS========/////
 
-    //======================
+    //========================FOR PHONE PARTS
 
   public function add3(){
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {

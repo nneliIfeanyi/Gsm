@@ -1,47 +1,5 @@
 <?php require APPROOT . '/views/inc/header.php'; ?>
 
-<?php
-
-    //Level one validate
-    if ($data['access']->level === 'one' && $this->userModel->posted()) {
-        ?>
-        <div class="container pt-3">
-        <div class="row">
-        <?php include APPROOT . '/views/admin/inc.php' ?>
-        <div class="col-md-9 mb-5 mx-auto">
-
-        <h2 class="text-center mt-2">u can no more post</h2>
-        <?php 
-
-      //Level one validate ends
-      
-      //Level two validate  
-    }elseif ($data['access']->level === 'two' && $this->userModel->posted2()) {
-        ?>
-        <div class="container pt-3">
-        <div class="row">
-        <?php include APPROOT . '/views/admin/inc.php' ?>
-        <div class="col-md-9 mb-5 mx-auto">
-
-        <h2 class="text-center mt-2">u can no more post</h2>
-        <?php 
-
-        //Level two validate ends
-
-        //Level three validate
-    }elseif ($data['access']->level === 'three' && $this->userModel->posted3()) {
-        ?>
-        <div class="container pt-3">
-        <div class="row">
-        <?php include APPROOT . '/views/admin/inc.php' ?>
-        <div class="col-md-9 mb-5 mx-auto">
-
-        <h2 class="text-center mt-2">u can no more post</h2>
-        <?php 
-
-        //End validate
-    }else{
-        ?>
         <div class="container pt-3">
         <div class="row">
         <?php include APPROOT . '/views/admin/inc.php' ?>
@@ -59,6 +17,11 @@
                 <option value="panel">Panels</option>
                 <option value="downboard">Downboards</option>
                 <option value="battery">Batteries</option>
+                <option value="camera">Cameras</option>
+                <option value="battery">Finger Print</option>
+                <option value="pwrflex">Power Flex</option>
+                <option value="others">Others</option>
+                <option value="tools">Tools</option>
             </select>
         </div>
         <div class="form-group">
@@ -107,10 +70,6 @@
         </div>
       </form>
     </div>
-    <?php
-    }
-
-?>
   </div>
 </div>
 </div>

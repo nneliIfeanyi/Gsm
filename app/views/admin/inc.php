@@ -9,24 +9,9 @@
                         </a>
                         <ul class="collapse show list-unstyled pl-3">
                         
-                            <?php
-                            if ($data['access']->level === 'three') {
-                                ?>
                                 <li><a class="text-decoration-none fs-6" href="<?=URLROOT?>/admin/add">Phone</a></li>
                                 <li><a class="text-decoration-none fs-6" href="<?=URLROOT?>/admin/add2">Accessories</a></li>
                                 <li><a class="text-decoration-none fs-6" href="<?=URLROOT?>/admin/add3">Parts</a></li>
-                                <?php 
-                            }else{
-
-                                 ?>
-                                <li><a class="text-decoration-none fs-6" href="<?=URLROOT?>/admin/add">Phone</a></li>
-                                <li><a class="text-decoration-none fs-6" href="#">Accessories</a></li>
-                                <li><a class="text-decoration-none fs-6" href="<?=URLROOT?>/admin/add3">Parts</a></li>
-                                <?php 
-
-                            }
-
-                            ?>
                         </ul>
                     </li>
                     <li class="pb-2">

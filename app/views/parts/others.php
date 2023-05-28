@@ -11,7 +11,7 @@
                     <div class="col-md-6">
                         <ul class="list-inline shop-top-menu pb-3 pt-1">
                             <li class="list-inline-item">
-                                <h2 class="text-success"><?=$data['title']?></h2>
+                                <h2 class="h5 text-success"><?=$data['title']?></h2>
                             </li>
                         </ul>
                     </div>
