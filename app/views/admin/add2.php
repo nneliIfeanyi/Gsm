@@ -1,5 +1,5 @@
 <?php require APPROOT . '/views/inc/header.php'; ?>
-
+<div class="mx-auto mt-2 container text-center"><?php flash('msg'); ?></div>
 <?php
 
     //Level one validate
@@ -9,7 +9,9 @@
         <div class="row">
         <?php include APPROOT . '/views/admin/inc.php' ?>
         <div class="col-md-9 mb-5 mx-auto">
-
+             <div class="card mx-auto" style="height: 90px; width: 90px;">
+            <img class="card-img" src="<?= URLROOT?>/img/denied.png">
+            </div>
         <h2 class="text-center mt-2">ACCESS DENIED</h2>
         <?php 
 
@@ -22,7 +24,9 @@
         <div class="row">
         <?php include APPROOT . '/views/admin/inc.php' ?>
         <div class="col-md-9 mb-5 mx-auto">
-
+            <div class="card mx-auto" style="height: 90px; width: 90px;">
+            <img class="card-img" src="<?= URLROOT?>/img/denied.png">
+            </div>
         <h2 class="text-center mt-2">ACCESS DENIED</h2>
         <?php 
 

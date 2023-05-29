@@ -65,7 +65,7 @@
 </li>
 </ul>
 <?php if($data['seller']->level === 'three') :?> 
-<form action="<?php echo URLROOT; ?>/users/review" method="POST">
+<!--<form action="<?php echo URLROOT; ?>/users/review" method="POST">
 <input type="hidden" name="id" id="quantity" value="<?=$data['product']->id?>">
 <input type="hidden" name="brand" value="<?=$data['product']->brand?>">
 <input type="hidden" name="model" value="<?=$data['product']->model?>">
@@ -93,7 +93,12 @@ Quantity
 <input type="submit" name="submit" value="Buy now" class="btn btn-success btn-lg">
 </div>
 </div>
-</form>
+</form>-->
+<div class="row pb-3">
+<div class="col d-grid">
+<a href="#" class="btn btn-success btn-block">Whatsapp</a>
+</div>
+</div>
 <?php else :?>
 <div class="row pb-3">
 <div class="col d-grid">
@@ -107,7 +112,7 @@ Quantity
 <p class="lead fw-bold px-3">Seller Info</p> 
 <div class="row">
 <div class="col-4 px-4">
-<img class="card-img rounded-circle" src="<?= URLROOT. '/'. $data['product']->img ?>" style="height: 70px;">
+<img class="card-img rounded-circle" src="<?= URLROOT. '/'. $data['seller']->img ?>" style="height: 70px;">
 </div>
 <div class="col-8 lh-1 p-2 mb-2">
 <p class="text-success"><?= $data['product']->seller ?></p>

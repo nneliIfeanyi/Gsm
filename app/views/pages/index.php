@@ -2,7 +2,7 @@
 <div class="mx-auto mt-2 container text-center"><?php flash('login_success'); ?></div>
 <div class="container p-2">
 <p class="h5 lh-1">Welcome to <span class="text-success fw-bold">Stanvic</span> Gsm-village</p>
-<p class="fs-6">A platform built for the people, not profits</p>
+<!--<p class="fs-6">A platform built for the people, not profits</p>-->
 </div>
 <?php include APPROOT . '/views/inc/showcase.php'; ?>
 

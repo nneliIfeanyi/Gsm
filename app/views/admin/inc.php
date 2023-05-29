@@ -23,7 +23,7 @@
                             <li><a class="text-decoration-none fs-6" href="<?=URLROOT?>/admin/show">All Products</a></li>
                         </ul>
                     </li>
-                    <li class="pb-2">
+                    <!--<li class="pb-2">
                         <a class="collapsed d-flex justify-content-between h3 text-decoration-none" href="#">
                             Orders
                             <i class="pull-right fa fa-fw fa-chevron-circle-down mt-1"></i>
@@ -33,7 +33,7 @@
                            <li><a class="text-decoration-none fs-6" href="<?=URLROOT?>/orders/processing">Processing</a></li> 
                            <li><a class="text-decoration-none fs-6" href="<?=URLROOT?>/orders/completed">Completed</a></li> 
                         </ul>
-                    </li>
+                    </li>-->
 
                     <li class="pb-2">
                         <a class="collapsed d-flex justify-content-between h3 text-decoration-none" href="#">

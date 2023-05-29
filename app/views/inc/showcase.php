@@ -22,7 +22,7 @@
 </div>
 </div>
 
-<div class="carousel-item">
+<div class="carousel-item bg-white">
 <div class="container">
 <div class="row p-3">
 <div class="col-lg-6 col-6 mb-0 d-flex">
@@ -37,7 +37,7 @@
 </div>
 </div>
 </div>
-<div class="carousel-item">
+<div class="carousel-item bg-white">
 <div class="container">
 <div class="row p-3">
 <div class="col-lg-6 col-6 mb-0 d-flex">

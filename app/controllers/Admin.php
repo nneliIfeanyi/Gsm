@@ -81,11 +81,17 @@ class Admin extends Controller {
         'move'  =>  move_uploaded_file($_FILES['picture']['tmp_name'],$image_folder)
       ]; 
 
-      if ($access->level == 'two' || 'one' && $_POST['sub_category'] == 'ios') {
+      if ($access->level === 'two' && $_POST['sub_category'] === 'ios') {
        flash('msg', 'Only level 3 users can post iphones');
        redirect('admin/add');
-      }elseif ($access->level == 'two' || 'one' && $_POST['condition'] == 'brandnew') {
+      }elseif ($access->level === 'two' && $_POST['condition'] === 'brandnew') {
        flash('msg', 'Only level 3 users can post Brandnew phones');
+       redirect('admin/add');
+      }elseif ($access->level === 'one' && $_POST['condition'] === 'brandnew') {
+       flash('msg', 'Only level 3 users can post Brandnew phones');
+       redirect('admin/add');
+      }elseif ($access->level === 'one' && $_POST['sub_category'] === 'ios') {
+       flash('msg', 'Only level 3 users can post iphone');
        redirect('admin/add');
       }else{
 
@@ -160,7 +166,10 @@ class Admin extends Controller {
         'move'  =>  move_uploaded_file($_FILES['picture']['tmp_name'],$image_folder)
       ]; 
 
-      if ($access->level == 'two' || 'one') {
+      if ($access->level === 'two') {
+       flash('msg', 'ACCESS DENIED');
+       redirect('admin/add2');
+      }elseif ($access->level === 'one') {
        flash('msg', 'ACCESS DENIED');
        redirect('admin/add2');
       }else{

@@ -1,5 +1,5 @@
 <?php require APPROOT . '/views/inc/header.php'; ?>
-
+<div class="mx-auto mt-2 container text-center"><?php flash('msg'); ?></div>
 <?php
 
     //Level one validate
@@ -9,8 +9,10 @@
         <div class="row">
         <?php include APPROOT . '/views/admin/inc.php' ?>
         <div class="col-md-9 mb-5 mx-auto">
-
-        <h2 class="text-center mt-2">u can no more add post</h2>
+            <div class="card mx-auto" style="height: 90px; width: 90px;">
+            <img class="card-img" src="<?= URLROOT?>/img/denied.png">
+            </div>
+        <h2 class="text-center mt-2">You can no more add post</h2>
         <?php 
 
       //Level one validate ends
@@ -24,7 +26,6 @@
         <?php include APPROOT . '/views/admin/inc.php' ?>
         <div class="col-md-9 mb-5 mx-auto">
 
-        <div><?=flash('msg')?></div>
         <h2 class="text-center mt-2">Add Phone</h2>
         <div class="card card-body bg-light mt-3">
       <p>Please use the form below to add product for sell</p>
