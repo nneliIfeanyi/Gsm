@@ -15,6 +15,7 @@ class Users extends Controller{
         $_POST  = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
 
         $data = [
+          'img' => 'uploaded/avatar_guy.png',
           'name' => trim($_POST['name']),
           'phone' => trim($_POST['phone']),
           'address' => trim($_POST['address']),

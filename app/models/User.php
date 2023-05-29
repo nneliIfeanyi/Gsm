@@ -11,13 +11,14 @@ class User{
     // Add User / Register
     public function register($data){
         // Prepare Query
-        $this->db->query('INSERT INTO users (name,phone,address,password,level) 
-        VALUES (:name, :phone, :address, :password, :level)');
+        $this->db->query('INSERT INTO users (name,phone,address,img,password,level) 
+        VALUES (:name, :phone, :address, :img, :password, :level)');
   
         // Bind Values
         $this->db->bind(':name', $data['name']);
         $this->db->bind(':phone', $data['phone']);
         $this->db->bind(':address', $data['address']);
+         $this->db->bind(':img', $data['img']);
         $this->db->bind(':password', $data['password']);
         $this->db->bind(':level', $data['level']);
         
