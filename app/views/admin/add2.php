@@ -47,10 +47,10 @@
          <div class="form-group" >
             <label>Category</label><br>
             <select class="custom-select" name="sub_category">
-                <option value="chargers">Chargers</option>
-                <option value="memory">Memory Card</option>
-                <option value="bluetooth">Bluetooth Devices</option>
-                <option value="power">Power Banks</option>
+                <option value="charger">Chargers</option>
+                <option value="external memory">Memory Card</option>
+                <option value="bluetooth device">Bluetooth Devices</option>
+                <option value="power bank">Power Banks</option>
             </select>
         </div>
         <div class="form-group">

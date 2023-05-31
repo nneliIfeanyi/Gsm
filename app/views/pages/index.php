@@ -20,7 +20,7 @@
                         </li>
                     </ul>
 
-                    <small class="fs-6"><span class="fw-bold fs-6">Search hint : </span><span class="fs-6">Just type in <span class="text-success">"Tecno"</span> for all Tecno products or <span class="text-success">"infinix"</span> or <span class="text-success">"samsung"</span> etc</span></small>
+                    <small class="fs-6"><span class="fw-bold fs-6">Search hint : </span><span class="fs-6">Just type in <span class="text-success">Tecno</span> for all Tecno products or <span class="text-success">infinix</span> or <span class="text-success">samsung</span> etc</span></small>
                 </div>
                 <div class="col-md-6 pb-4">
                     <?php include APPROOT . '/views/inc/search.php'; ?>

@@ -287,6 +287,8 @@ class Admin extends Controller {
       if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $_POST = filter_input_array(INPUT_POST, FILTER_DEFAULT);
         $image_file = $_FILES['picture']['name'];
+
+        if (!empty($image_file)) {
         $file_nameArr = explode(".", $image_file);
         $extension = end($file_nameArr);
         $ext = strtolower($extension);
@@ -294,8 +296,7 @@ class Admin extends Controller {
         $db_image_file = "uploaded/".$unique_name;
         $image_folder = "uploaded/".$unique_name;
         $data = [
-          'user_id' => $_SESSION['user_id'],
-          'user_name' => $_SESSION['user_name'],
+          'id' => $id,
           'category' => $_POST['category'],
           'condition' => $_POST['condition'],
           'brand' => $_POST['brand'],
@@ -304,24 +305,44 @@ class Admin extends Controller {
           'model' => trim($_POST['model']),
           'price' => trim($_POST['price']),
           'color' => trim($_POST['color']),
-          'priceErr' => '',
-          'nameErr' => '',
-          'imgErr' => '',
-          'descErr' => '',
           'move'  =>  move_uploaded_file($_FILES['picture']['tmp_name'],$image_folder)
         ]; 
   
-        if($this->productModel->add_product($data)){
+        if($this->productModel->update($data)){
           move_uploaded_file($_FILES['picture']['tmp_name'],$image_folder);
           flash('success', 'Add Product Successfull');
           redirect('admin/show');
         } else {
           die('Something went wrong');
         }
+
+      }else{
+          //NO IMAGE EDIT
+        $data = [
+          'id' => $id,
+          'category' => $_POST['category'],
+          'condition' => $_POST['condition'],
+          'brand' => $_POST['brand'],
+          'description' => trim($_POST['description']),
+          'model' => trim($_POST['model']),
+          'price' => trim($_POST['price']),
+          'color' => trim($_POST['color']),
+  
+        ]; 
+  
+        if($this->productModel->update1($data)){
+          flash('success', 'Add Product Successfull');
+          redirect('admin/show');
+        } else {
+          die('Something went wrong');
+
+
+        }
+
      
         }
         //===========================================================================
-       else {
+       }else {
         // Get post from model
         $products = $this->productModel->getById($id);
         $access = $this->userModel->userLevel();
@@ -338,7 +359,7 @@ class Admin extends Controller {
 
         $this->view('admin/edit', $data);
       }
-    }
+}
 
 
     //==================== Delete

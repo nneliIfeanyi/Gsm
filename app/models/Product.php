@@ -89,7 +89,7 @@ class Product {
 
     // Get All Products
     public function getProduct(){
-        $this->db->query("SELECT * FROM products");
+        $this->db->query("SELECT * FROM products ORDER BY id DESC");
   
         $results = $this->db->resultset();
   
@@ -98,7 +98,7 @@ class Product {
 
  // Get per user Products
     public function getUserProduct(){
-        $this->db->query("SELECT * FROM products WHERE s_id = :id AND seller = :user");
+        $this->db->query("SELECT * FROM products WHERE s_id = :id AND seller = :user ORDER BY id DESC");
         $this->db->bind(':id', $_SESSION['user_id']);
         $this->db->bind(':user', $_SESSION['user_name']);
         $results = $this->db->resultset();

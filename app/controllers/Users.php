@@ -89,7 +89,6 @@ class Users extends Controller{
         // Init data
         $data = [
           'name' => '',
-          'email' => '',
           'phone' => '',
           'address' => '',
           'password' => '',
@@ -109,7 +108,7 @@ class Users extends Controller{
   public function login(){
     if($this->isLoggedIn()){
         flash('login_success', 'You are Logged in.');
-        redirect('pages');
+        redirect('admin');
       }
     // Check if POST
     if($_SERVER['REQUEST_METHOD'] == 'POST'){
@@ -158,63 +157,10 @@ class Users extends Controller{
 
         // Load View
         $this->view('users/login', $data);
-      };
       }
+    }
 
-      public function login2(){
-    if($this->isLoggedIn()){
-        flash('login_success', 'You are Logged in.');
-        redirect('pages');
-      }
-    // Check if POST
-    if($_SERVER['REQUEST_METHOD'] == 'POST'){
-      // Sanitize POST
-      $_POST  = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
-      
-      $data = [       
-        'phone' => trim($_POST['phone']),
-        'password' => trim($_POST['password']),        
-        'phone_err' => '',
-        'password_err' => '',       
-      ];
-
-      // Check for email
-      if(empty($data['phone'])){
-        $data['phone_err'] = 'Please enter phone number.';
-      }else if(empty($data['password'])){
-        $data['password_err'] = 'Please enter password.';
-      }else if(!$this->userModel->findUserByPhone($data['phone'])){
-        $data['phone_err'] = 'This number is not registered.';
-      } else {
-        $loggedInUser = $this->userModel->login($data['phone'], $data['password']);
-        if($loggedInUser){
-          // User Authenticated!
-          $this->createUserSession($loggedInUser);
-          flash('login_success', 'You are Logged in.');
-          redirect('pages');
-         
-        } else {
-          $data['password_err'] = 'Password incorrect.';
-          // Load View
-          $this->view('users/login2', $data);
-        }
-      }
-      $this->view('users/login2', $data);
-      } else {
-       // If NOT a POST
-
-        // Init data
-         $data = [
-          'phone' => '',
-          'password' => '',
-          'phone_err' => '',
-          'password_err' => '',
-        ];
-
-        // Load View
-        $this->view('users/login2', $data);
-      };
-      }
+    
   // Check Logged In
   public function isLoggedIn(){
     if(isset($_SESSION['user_id'])){
@@ -250,61 +196,6 @@ class Users extends Controller{
     $this->view('users/view_p', $data);
   }
 
-
-
-    public function review($id){
-
-      if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-        $_POST  = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
-        
-        $data = [
-          'product_id' => trim($_POST['id']),
-          'brand' => trim($_POST['brand']),
-          'model' => trim($_POST['model']),
-          'category' => trim($_POST['category']),
-          'sub_category' => trim($_POST['sub_category']),
-          'desc' => trim($_POST['desc']),
-          'picture' => trim($_POST['picture']),
-          'price' => trim($_POST['price']),
-          'color' => trim($_POST['color']),
-          'condition' => trim($_POST['condition']),
-          'quantity' => trim($_POST['quantity']),
-          'user_name' => $_SESSION['user_name'],
-          'user_id' => $_SESSION['user_id'],
-          'status' => '',
-         
-        ];
-
-
-       if($this->productModel->addToCart($data)){
-          flash('cart_success', 'Added to cart');
-          redirect('users/review');
-        } else {
-          die('Something went wrong');
-        }
-       
-      }
-
-      $data = [
-
-        
-        
-      ];
-
-      $this->view('users/review', $data);
-  }
-    
-     public function delivery($id){ 
-      $products = $this->userModel->getProductById($id);
-      $data = [
-       'product' => $products,
-        'name' => '',
-        'phone' => '',
-         'address' => '',
-      ];
-     
-      $this->view('users/delivery', $data);
-    }
 
 
 

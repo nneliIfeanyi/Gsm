@@ -104,7 +104,7 @@ Quantity
 <div class="col-8 lh-1 p-2 mb-2">
 <p class="text-success text-muted"><?= $data['product']->seller ?></p>
 <p class="fs-6"><i class="fa fa-map-marker fa-sm"></i> <?= $data['seller']->address ?>.</p>
-<p><i class="fa fa-truck fa-sm"></i> Delivery within Abuja and environs</p>
+<p class="fs-6"><i class="fa fa-truck fa-sm"></i> Delivery within Abuja and environs</p>
 </div>
 </div>
 <?php if($data['seller']->level === 'three') :?> 

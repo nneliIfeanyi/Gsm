@@ -35,8 +35,8 @@
             <label>Category</label><br>
             <select class="custom-select" name="sub_category">
                 <option value="" disabled>iPhone</option>
-                <option value="android">Android</option>
-                <option value="others">others</option>
+                <option value="android device">Android</option>
+                <option value="feature phone">others</option>
             </select>
         </div>
         
@@ -106,9 +106,9 @@
         <div class="form-group">
             <label>Category</label><br>
             <select class="custom-select" name="sub_category">
-                <option value="ios">iPhone</option>
-                <option value="android">Android</option>
-                <option value="others">others</option>
+                <option value="ios device">iPhone</option>
+                <option value="android device">Android</option>
+                <option value="feature phone">others</option>
             </select>
         </div>
         
@@ -131,7 +131,7 @@
             <label>Condition:</label><br>
             <select name="condition">
                 <option value="brandnew">Brand New</option>
-                <option value="londonused">London Used</option>
+                <option value="ukused">London Used</option>
                 <option value="secondhand">2nd Hand</option>
             </select>
         </div>

@@ -16,7 +16,7 @@
                         </li>
                         <li>
                             <i class="fa fa-envelope fa-fw"></i>
-                            <a class="text-decoration-none" href="mailto:info@company.com">info@murada.com</a>
+                            <a class="text-decoration-none" href="mailto:info@company.com">stanvicbest@gmail.com</a>
                         </li>
                     </ul>
                 </div>
