@@ -110,10 +110,10 @@ Quantity
 <?php if($data['seller']->level === 'three') :?> 
 <div class="row">
 <div class="col d-grid">
-<a href="https://wa.me/9168655298?text=I%20am%20interested%20in%20buying%20this%20<?=URLROOT.'/'.'users'.'/'.'view_p'.'/'.$data['product']->id?>" class="btn btn-success btn-block">Whatsapp</a>
+<a href="https://wa.me/9168655298?text=I%20am%20interested%20in%20buying%20this%20<?=URLROOT.'/'.'users'.'/'.'view_p'.'/'.$data['product']->id?>" class="btn btn-success btn-block"><i class="fa fa-whatsapp fa-fw"></i>Whatsapp</a>
 </div>
 <div class="col d-grid">
-<a href="" class="btn btn-outline-success btn-block">Call Now</a>
+<a href="tel:08122321931" class="btn btn-outline-success btn-block"><i class="fa fa-phone fa-fw"></i>Call Now</a>
 </div>
 </div>
 <?php else :?>
