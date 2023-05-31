@@ -142,5 +142,15 @@ class Product {
         }
     }
 
+         public function search_result($data){
+            $this->db->query(" SELECT * FROM products WHERE brand = :search_text OR model = :search_text OR category = :search_text OR sub_cate = :search_text OR cond_tion = :search_text OR color = :search_text");
+
+            $this->db->bind(':search_text', $data['search_text']);
+            $results = $this->db->resultset();
+  
+        return $results;
+      }
+
+
 
     }

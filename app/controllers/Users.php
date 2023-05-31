@@ -252,13 +252,13 @@ class Users extends Controller{
 
 
 
-    public function review(){
+    public function review($id){
 
       if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $_POST  = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
         
         $data = [
-          'p_id' => trim($_POST['id']),
+          'product_id' => trim($_POST['id']),
           'brand' => trim($_POST['brand']),
           'model' => trim($_POST['model']),
           'category' => trim($_POST['category']),
@@ -294,14 +294,19 @@ class Users extends Controller{
       $this->view('users/review', $data);
   }
     
-    public function success(){
-
-      
+     public function delivery($id){ 
+      $products = $this->userModel->getProductById($id);
       $data = [
-        
+       'product' => $products,
+        'name' => '',
+        'phone' => '',
+         'address' => '',
       ];
-
-      $this->view('users/success', $data);
+     
+      $this->view('users/delivery', $data);
     }
+
+
+
   }
   

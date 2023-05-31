@@ -1,8 +1,6 @@
 <?php require APPROOT . '/views/inc/header.php'; ?>
-<div class="mx-auto mt-2 container text-center"><?php flash('login_success'); ?></div>
 <div class="container p-2">
-<p class="h5 lh-1">Welcome to <span class="text-success fw-bold">Stanvic</span> Gsm-village</p>
-<!--<p class="fs-6">A platform built for the people, not profits</p>-->
+<p class="h5 lh-1">Welcome to <span class="text-success fw-bold">Stanvic</span> online shop</p>
 </div>
 <?php include APPROOT . '/views/inc/showcase.php'; ?>
 
@@ -11,22 +9,21 @@
     <div class="row">
 <?php include APPROOT . '/views/inc/nav.php'; ?>
         <div class="col-lg-9">
+
+    <div class="mx-auto mt-2 container text-center"><?php flash('login_success'); ?></div>
+    <div class="mx-auto mt-2 container text-center"><?php flash('search_msg'); ?></div>
             <div class="row">
-                <!--<div class="col-md-6">
-                    <ul class="list-inline shop-top-menu pb-2 pt-1">
+                <div class="col-md-6">
+                    <ul class="list-inline shop-top-menu pt-1">
                         <li class="list-inline-item">
-                            <h2 class="text-success"><?=$data['title']?></h2>
+                            <h4 class="text-success"><?=$data['title']?></h4>
                         </li>
                     </ul>
-                </div>-->
+
+                    <small class="fs-6"><span class="fw-bold fs-6">Search hint : </span><span class="fs-6">Just type in <span class="text-success">"Tecno"</span> for all Tecno products or <span class="text-success">"infinix"</span> or <span class="text-success">"samsung"</span> etc</span></small>
+                </div>
                 <div class="col-md-6 pb-4">
-                    <div class="d-flex">
-                        <select class="form-control">
-                            <option>Search</option>
-                            <option>A to Z</option>
-                            <option>Item</option>
-                        </select>
-                    </div>
+                    <?php include APPROOT . '/views/inc/search.php'; ?>
                 </div>
             </div>
 

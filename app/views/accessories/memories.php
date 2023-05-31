@@ -15,15 +15,6 @@
                             </li>
                         </ul>
                     </div>
-                    <div class="col-md-6 pb-4">
-                        <div class="d-flex">
-                            <select class="form-control">
-                                <option>Search</option>
-                                <option>A to Z</option>
-                                <option>Item</option>
-                            </select>
-                        </div>
-                    </div>
                     
                     <div class="mt-2 text-center"><?= flash('success')?></div>
                 </div>
