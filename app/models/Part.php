@@ -52,7 +52,7 @@ class Part {
     }
 
     public function pwrflex(){
-      $this->db->query("SELECT * FROM products WHERE sub_cate = 'pwrflex' ");
+      $this->db->query("SELECT * FROM products WHERE sub_cate = 'powerflex' ");
         $results = $this->db->resultset();
   
         return $results;

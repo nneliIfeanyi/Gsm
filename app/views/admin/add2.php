@@ -51,6 +51,7 @@
                 <option value="external memory">Memory Card</option>
                 <option value="bluetooth device">Bluetooth Devices</option>
                 <option value="power bank">Power Banks</option>
+                <option value="battery">Battery</option>
             </select>
         </div>
         <div class="form-group">

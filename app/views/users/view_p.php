@@ -34,6 +34,14 @@
 </ul>
 <ul class="list-inline lh-1">
 <li class="list-inline-item">
+<h6>Sub_Category :</h6>
+</li>
+<li class="list-inline-item">
+<p class="text-muted"><strong><?= $data['product']->sub_cate?></strong></p>
+</li>
+</ul>
+<ul class="list-inline lh-1">
+<li class="list-inline-item">
 <h6>Condition :</h6>
 </li>
 <li class="list-inline-item">

@@ -18,7 +18,7 @@ class Phone {
 
      // Get Product By Brand new
     public function android(){
-      $this->db->query("SELECT * FROM products WHERE sub_cate = 'android' ");
+      $this->db->query("SELECT * FROM products WHERE sub_cate = 'android device' ");
         $results = $this->db->resultset();
   
         return $results;
@@ -27,7 +27,7 @@ class Phone {
 
      // Get Product By second hand
     public function iphones(){
-      $this->db->query("SELECT * FROM products WHERE brand = 'apple' ");
+      $this->db->query("SELECT * FROM products WHERE brand = 'ios device' ");
         $results = $this->db->resultset();
   
         return $results;
@@ -37,7 +37,7 @@ class Phone {
 
      // Get Product By london used
     public function button(){
-      $this->db->query("SELECT * FROM products WHERE sub_cate = 'others' ");
+      $this->db->query("SELECT * FROM products WHERE sub_cate = 'feature phone' ");
         $results = $this->db->resultset();
   
         return $results;

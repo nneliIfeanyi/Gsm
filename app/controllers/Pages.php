@@ -2,19 +2,32 @@
   class Pages extends Controller {
 
     public $productModel;
+    public $accessoryModel;
+    public $phoneModel;
+    public $partstModel;
     public function __construct(){
       $this->productModel = $this->model('Product');
+      $this->partsModel = $this->model('Part');
+      $this->phoneModel = $this->model('Phone');
+      $this->accessoryModel = $this->model('Accessory');
     }
     
 
     //====INDEX PAGE VIEW DISPLAY
     public function index(){
       $products = $this->productModel->getProduct();
+      $products1 = $this->accessoryModel->allAccessories();
+      $products2 = $this->phoneModel->allphones();
+      $products3 = $this->partsModel->allparts();
+
       $data = [
         'err' => '',
         'title' => 'All Categories',
         'description' => '',
-        'products' => $products
+        'products' => $products,
+        'products1' => $products1,
+        'products2' => $products2,
+        'products3' => $products3
       ];
      
       $this->view('pages/index', $data);

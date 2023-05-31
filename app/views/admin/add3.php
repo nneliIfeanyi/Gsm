@@ -19,7 +19,7 @@
                 <option value="battery">Batteries</option>
                 <option value="camera">Cameras</option>
                 <option value="battery">Finger Print</option>
-                <option value="pwrflex">Power Flex</option>
+                <option value="powerflex">Power Flex</option>
                 <option value="others">Others</option>
                 <option value="tools">Tools</option>
             </select>
