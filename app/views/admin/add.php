@@ -58,7 +58,7 @@
             <label>Condition:</label><br>
             <select name="condition">
                 <option value="" disabled>Brand New</option>
-                <option value="londonused">London Used</option>
+                <option value="UKused">London Used</option>
                 <option value="secondhand">2nd Hand</option>
             </select>
         </div>
@@ -131,7 +131,7 @@
             <label>Condition:</label><br>
             <select name="condition">
                 <option value="brandnew">Brand New</option>
-                <option value="ukused">London Used</option>
+                <option value="UKused">London Used</option>
                 <option value="secondhand">2nd Hand</option>
             </select>
         </div>

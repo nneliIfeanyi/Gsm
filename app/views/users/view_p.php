@@ -30,17 +30,17 @@
                     <div class="row">
                         <div class="col-4">
                             <a href="#">
-                                <img class="card-img" src="<?= URLROOT. '/'. $data['product']->img ?>" alt="Product Image 1" style="height: 120px;">
+                                <img class="card-img" src="<?= URLROOT. '/'. $data['product']->img ?>" alt="Product Image 1" style="height: 100px;">
                             </a>
                         </div>
                         <div class="col-4">
                             <a href="#">
-                                <img class="card-img" src="<?= URLROOT. '/'. $data['product']->img2 ?>" alt="Product Image 2" style="height: 120px;">
+                                <img class="card-img" src="<?= URLROOT. '/'. $data['product']->img2 ?>" alt="Product Image 2" style="height: 100px;">
                             </a>
                         </div>
                         <div class="col-4">
                             <a href="#">
-                                <img class="card-img" src="<?= URLROOT. '/'. $data['product']->img3 ?>" alt="Product Image 3" style="height: 120px;">
+                                <img class="card-img" src="<?= URLROOT. '/'. $data['product']->img3 ?>" alt="Product Image 3" style="height: 100px;">
                             </a>
                         </div>
                     </div>
