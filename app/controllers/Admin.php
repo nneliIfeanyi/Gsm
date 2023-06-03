@@ -319,6 +319,7 @@ class Admin extends Controller {
 
     //====================== Edit Product
     public function edit($id){
+      $uploadPath = "uploaded/";
       if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $_POST = filter_input_array(INPUT_POST, FILTER_DEFAULT);
      
