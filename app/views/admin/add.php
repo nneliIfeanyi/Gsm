@@ -1,6 +1,4 @@
-<?php require APPROOT . '/views/inc/header.php'; ?>
-<div class="mx-auto mt-2 container text-center"><?php flash('msg'); ?></div>
-<?php
+<?php require APPROOT . '/views/inc/header.php'; 
 
     //Level one validate
     if ($data['access']->level === 'one' && $this->userModel->posted()) {
@@ -25,7 +23,8 @@
         <div class="row">
         <?php include APPROOT . '/views/admin/inc.php' ?>
         <div class="col-md-9 mb-5 mx-auto">
-
+            <div class="mx-auto mt-2 container text-center"><?php flash('msg'); ?></div>
+            <div class="mx-auto mt-2 container text-center"><?php flash('upload_msg'); ?></div>
         <h2 class="text-center mt-2">Add Phone</h2>
         <div class="card card-body bg-light mt-3">
       <p>Please use the form below to add product for sell</p>
@@ -97,7 +96,8 @@
         <div class="row">
         <?php include APPROOT . '/views/admin/inc.php' ?>
         <div class="col-md-9 mb-5 mx-auto">
-
+         <div class="mx-auto mt-2 container text-center"><?php flash('msg'); ?></div>
+            <div class="mx-auto mt-2 container text-center"><?php flash('upload_msg'); ?></div>
         <h2 class="text-center mt-2">Add Phone</h2>
         <div class="card card-body bg-light mt-3">
       <p>Please use the form below to add product for sell</p>
@@ -150,7 +150,14 @@
             <label>Product Pic</label>
             <input type="file" name="picture" class="form-control form-control-lg" >
         </div>   
-
+        <div class="form-group">
+            <label>Product Pic</label>
+            <input type="file" name="picture2" class="form-control form-control-lg" >
+        </div> 
+        <div class="form-group">
+            <label>Product Pic</label>
+            <input type="file" name="picture3" class="form-control form-control-lg" >
+        </div> 
         <div class="form-row text-center">
           <div class="col mt-2">
             <input type="submit" class="btn btn-success btn-block" value="Proceed">

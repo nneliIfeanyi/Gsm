@@ -7,8 +7,60 @@
 <div class="row">
 <div class="col-lg-5 mt-2">
 <div class="card mb-2">
-<img class="card-img img-fluid" src="<?= URLROOT. '/'. $data['product']->img ?>">
+<img class="card-img img-fluid" src="<?= URLROOT. '/'. $data['product']->img ?>" id="product-detail">
 </div>
+
+<?php if (!empty($data['product']->img2) && !empty($data['product']->img3)) :?>
+<div class="row">
+        <!--Start Controls-->
+        <div class="col-1 align-self-center">
+            <a href="#multi-item-example" role="button" data-bs-slide="prev">
+                <i class="text-dark fa fa-chevron-left"></i>
+                <span class="sr-only">Previous</span>
+            </a>
+        </div>
+        <!--End Controls-->
+        <!--Start Carousel Wrapper-->
+        <div id="multi-item-example" class="col-10 carousel slide carousel-multi-item" data-bs-ride="carousel">
+            <!--Start Slides-->
+            <div class="carousel-inner product-links-wap" role="listbox">
+
+                <!--First slide-->
+                <div class="carousel-item active">
+                    <div class="row">
+                        <div class="col-4">
+                            <a href="#">
+                                <img class="card-img img-fluid" src="<?= URLROOT. '/'. $data['product']->img ?>" alt="Product Image 1">
+                            </a>
+                        </div>
+                        <div class="col-4">
+                            <a href="#">
+                                <img class="card-img img-fluid" src="<?= URLROOT. '/'. $data['product']->img2 ?>" alt="Product Image 2">
+                            </a>
+                        </div>
+                        <div class="col-4">
+                            <a href="#">
+                                <img class="card-img img-fluid" src="<?= URLROOT. '/'. $data['product']->img3 ?>" alt="Product Image 3">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!--/.First slide-->
+            </div>
+            <!--End Slides-->
+        </div>
+        <!--End Carousel Wrapper-->
+        <!--Start Controls-->
+        <div class="col-1 align-self-center">
+            <a href="#multi-item-example" role="button" data-bs-slide="next">
+                <i class="text-dark fa fa-chevron-right"></i>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+        <!--End Controls-->
+    </div>
+<?php endif;?>
 </div>
 
 

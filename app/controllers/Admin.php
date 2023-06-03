@@ -6,7 +6,10 @@ class Admin extends Controller {
 
   public function __construct(){
       $this->productModel = $this->model('Product');
-       $this->userModel = $this->model('User');
+      $this->userModel = $this->model('User');
+      if(!isset($_SESSION['user_id'])){
+        redirect('users/login');
+    }
   }
 
    //======================
@@ -53,60 +56,66 @@ class Admin extends Controller {
 
   public function add(){
      $access = $this->userModel->userLevel();
+     $uploadPath = "uploaded/";
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       $_POST = filter_input_array(INPUT_POST, FILTER_DEFAULT);
-      $image_file = $_FILES['picture']['name'];
-      $file_nameArr = explode(".", $image_file);
-      $extension = end($file_nameArr);
-      $ext = strtolower($extension);
-      $unique_name = rand(1100, 999).rand(100, 999).'.'.$ext;
-      $db_image_file = "uploaded/".$unique_name;
-      $image_folder = "uploaded/".$unique_name;
-      $data = [
-        'user_id' => $_SESSION['user_id'],
-        'user_name' => $_SESSION['user_name'],
-        'category' => 'smartphone',
-        'sub_cate' => $_POST['sub_category'],
-        'condition' => $_POST['condition'],
-        'brand' => $_POST['brand'],
-        'image' => $db_image_file,
-        'description' => trim($_POST['description']),
-        'model' => trim($_POST['model']),
-        'price' => trim($_POST['price']),
-        'color' => trim($_POST['color']),
-        'priceErr' => '',
-        'nameErr' => '',
-        'imgErr' => '',
-        'descErr' => '',
-        'move'  =>  move_uploaded_file($_FILES['picture']['tmp_name'],$image_folder)
-      ]; 
+      $fileName = basename($_FILES["picture"]["name"]);
+      $fileName2 = basename($_FILES["picture2"]["name"]);
+      $fileName3 = basename($_FILES["picture3"]["name"]);
+      $db_image_file =  $uploadPath . $fileName; 
+      $db_image_file2 =  $uploadPath . $fileName2; 
+      $db_image_file3 =  $uploadPath . $fileName3;  
+      $imageUploadPath = $uploadPath . $fileName; 
+      $imageUploadPath2 = $uploadPath . $fileName2;
+      $imageUploadPath3 = $uploadPath . $fileName3;
+      $fileType = pathinfo($imageUploadPath, PATHINFO_EXTENSION);
+      $fileType2 = pathinfo($imageUploadPath2, PATHINFO_EXTENSION);
+      $fileType3 = pathinfo($imageUploadPath3, PATHINFO_EXTENSION);  
+         
+      // Allow certain file formats 
+      $allowTypes = array('jpg','png','jpeg'); 
+      if(!in_array($fileType, $allowTypes) || !in_array($fileType2, $allowTypes) || !in_array($fileType3, $allowTypes)){ 
+        
+         flash('msg', 'INVALID IMAGE TYPE');
+         redirect('admin/add');
+         
+          
+      }else{ 
+          $imageTemp = $_FILES["picture"]["tmp_name"];
+          $imageTemp2 = $_FILES["picture2"]["tmp_name"];
+          $imageTemp3 = $_FILES["picture3"]["tmp_name"]; 
+           
+          // Compress size and upload image 
+          compressImage($imageTemp, $imageUploadPath, 9);
+          compressImage($imageTemp2, $imageUploadPath2, 9);
+          compressImage($imageTemp3, $imageUploadPath3, 9); 
 
-      if ($access->level === 'two' && $_POST['sub_category'] === 'ios') {
-       flash('msg', 'Only level 3 users can post iphones');
-       redirect('admin/add');
-      }elseif ($access->level === 'two' && $_POST['condition'] === 'brandnew') {
-       flash('msg', 'Only level 3 users can post Brandnew phones');
-       redirect('admin/add');
-      }elseif ($access->level === 'one' && $_POST['condition'] === 'brandnew') {
-       flash('msg', 'Only level 3 users can post Brandnew phones');
-       redirect('admin/add');
-      }elseif ($access->level === 'one' && $_POST['sub_category'] === 'ios') {
-       flash('msg', 'Only level 3 users can post iphone');
-       redirect('admin/add');
-      }else{
+          $data = [
+            'user_id' => $_SESSION['user_id'],
+            'user_name' => $_SESSION['user_name'],
+            'category' => 'mobile phone',
+            'sub_cate' => $_POST['sub_category'],
+            'condition' => $_POST['condition'],
+            'brand' => $_POST['brand'],
+            'image' => $db_image_file,
+            'image2' => $db_image_file2,
+            'image3' => $db_image_file3,
+            'description' => trim($_POST['description']),
+            'model' => trim($_POST['model']),
+            'price' => trim($_POST['price']),
+            'color' => trim($_POST['color'])
+          ];
 
+          if($this->productModel->add_product($data)){
+            flash('success', 'Add Product Successfull');
+            redirect('admin/show');
+          } else {
+            die('Something went wrong');
+          } 
+            
+        }
 
-      if($this->productModel->add_product($data)){
-        move_uploaded_file($_FILES['picture']['tmp_name'],$image_folder);
-        flash('success', 'Add Product Successfull');
-        redirect('admin/show');
-      } else {
-        die('Something went wrong');
-      }
-
-      }
-   
-      }else{
+    }else{
         if(!isset($_SESSION['user_id'])){
           redirect('users/login');
         }
@@ -138,15 +147,29 @@ class Admin extends Controller {
     //========================FOR ACCESSORIES
   public function add2(){
     $access = $this->userModel->userLevel();
+    $uploadPath = "uploaded/";
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       $_POST = filter_input_array(INPUT_POST, FILTER_DEFAULT);
-      $image_file = $_FILES['picture']['name'];
-      $file_nameArr = explode(".", $image_file);
-      $extension = end($file_nameArr);
-      $ext = strtolower($extension);
-      $unique_name = rand(1100, 999).rand(100, 999).'.'.$ext;
-      $db_image_file = "uploaded/".$unique_name;
-      $image_folder = "uploaded/".$unique_name;
+      $fileName = basename($_FILES["picture"]["name"]); 
+      $db_image_file =  $uploadPath . $fileName; 
+      $imageUploadPath = $uploadPath . $fileName; 
+      $fileType = pathinfo($imageUploadPath, PATHINFO_EXTENSION); 
+         
+      // Allow certain file formats 
+      $allowTypes = array('jpg','png','jpeg'); 
+      if(!in_array($fileType, $allowTypes)){ 
+        
+         flash('msg', 'INVALID IMAGE TYPE');
+         redirect('admin/add2');
+         
+          
+      }else{ 
+          $imageTemp = $_FILES["picture"]["tmp_name"]; 
+           
+          // Compress size and upload image 
+          compressImage($imageTemp, $imageUploadPath, 9); 
+          
+      
       $data = [
         'user_id' => $_SESSION['user_id'],
         'user_name' => $_SESSION['user_name'],
@@ -162,8 +185,7 @@ class Admin extends Controller {
         'priceErr' => '',
         'nameErr' => '',
         'imgErr' => '',
-        'descErr' => '',
-        'move'  =>  move_uploaded_file($_FILES['picture']['tmp_name'],$image_folder)
+        'descErr' => ''
       ]; 
 
       if ($access->level === 'two') {
@@ -175,8 +197,8 @@ class Admin extends Controller {
       }else{
 
 
-      if($this->productModel->add_product($data)){
-        move_uploaded_file($_FILES['picture']['tmp_name'],$image_folder);
+      if($this->productModel->add_product2($data)){
+      
         flash('success', 'Add Product Successfull');
         redirect('admin/show');
       } else {
@@ -184,7 +206,7 @@ class Admin extends Controller {
       }
 
       }
-   
+  }   
 
    //=======IF NOT A POST REQUEST==========//////
       }else{
@@ -217,15 +239,27 @@ class Admin extends Controller {
     //========================FOR PHONE PARTS
 
   public function add3(){
+    $uploadPath = "uploaded/";
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       $_POST = filter_input_array(INPUT_POST, FILTER_DEFAULT);
-      $image_file = $_FILES['picture']['name'];
-      $file_nameArr = explode(".", $image_file);
-      $extension = end($file_nameArr);
-      $ext = strtolower($extension);
-      $unique_name = rand(1100, 999).rand(100, 999).'.'.$ext;
-      $db_image_file = "uploaded/".$unique_name;
-      $image_folder = "uploaded/".$unique_name;
+      $fileName = basename($_FILES["picture"]["name"]); 
+      $db_image_file =  $uploadPath . $fileName; 
+      $imageUploadPath = $uploadPath . $fileName; 
+      $fileType = pathinfo($imageUploadPath, PATHINFO_EXTENSION); 
+         
+      // Allow certain file formats 
+      $allowTypes = array('jpg','png','jpeg'); 
+      if(!in_array($fileType, $allowTypes)){ 
+        
+         flash('msg', 'INVALID IMAGE TYPE');
+         redirect('admin/add2');
+         
+          
+      }else{ 
+          $imageTemp = $_FILES["picture"]["tmp_name"]; 
+           
+          // Compress size and upload image 
+          compressImage($imageTemp, $imageUploadPath, 9); 
       $data = [
         'user_id' => $_SESSION['user_id'],
         'user_name' => $_SESSION['user_name'],
@@ -241,17 +275,18 @@ class Admin extends Controller {
         'priceErr' => '',
         'nameErr' => '',
         'imgErr' => '',
-        'descErr' => '',
-        'move'  =>  move_uploaded_file($_FILES['picture']['tmp_name'],$image_folder)
+        'descErr' => ''
       ]; 
 
-      if($this->productModel->add_product($data)){
-        move_uploaded_file($_FILES['picture']['tmp_name'],$image_folder);
+      if($this->productModel->add_product2($data)){
+      
         flash('success', 'Add Product Successfull');
         redirect('admin/show');
       } else {
         die('Something went wrong');
       }
+
+    }
    
       }else{
         if(!isset($_SESSION['user_id'])){
@@ -286,36 +321,63 @@ class Admin extends Controller {
     public function edit($id){
       if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $_POST = filter_input_array(INPUT_POST, FILTER_DEFAULT);
-        $image_file = $_FILES['picture']['name'];
+     
+        $fileName = basename($_FILES["picture"]["name"]);
+        $fileName2 = basename($_FILES["picture2"]["name"]);
+        $fileName3 = basename($_FILES["picture3"]["name"]);
+        if (!empty($fileName) && !empty($fileName2) && !empty($fileName3)) {
+      
+      $db_image_file =  $uploadPath . $fileName; 
+      $db_image_file2 =  $uploadPath . $fileName2; 
+      $db_image_file3 =  $uploadPath . $fileName3;  
+      $imageUploadPath = $uploadPath . $fileName; 
+      $imageUploadPath2 = $uploadPath . $fileName2;
+      $imageUploadPath3 = $uploadPath . $fileName3;
+      $fileType = pathinfo($imageUploadPath, PATHINFO_EXTENSION);
+      $fileType2 = pathinfo($imageUploadPath2, PATHINFO_EXTENSION);
+      $fileType3 = pathinfo($imageUploadPath3, PATHINFO_EXTENSION);  
+         
+      // Allow certain file formats 
+      $allowTypes = array('jpg','png','jpeg'); 
+      if(!in_array($fileType, $allowTypes) || !in_array($fileType2, $allowTypes) || !in_array($fileType3, $allowTypes)){ 
+        
+         flash('msg', 'INVALID IMAGE TYPE');
+         redirect('admin/edit/$id');
+         
+          
+      }else{ 
+          $imageTemp = $_FILES["picture"]["tmp_name"];
+          $imageTemp2 = $_FILES["picture2"]["tmp_name"];
+          $imageTemp3 = $_FILES["picture3"]["tmp_name"]; 
+           
+          // Compress size and upload image 
+          compressImage($imageTemp, $imageUploadPath, 9);
+          compressImage($imageTemp2, $imageUploadPath2, 9);
+          compressImage($imageTemp3, $imageUploadPath3, 9); 
 
-        if (!empty($image_file)) {
-        $file_nameArr = explode(".", $image_file);
-        $extension = end($file_nameArr);
-        $ext = strtolower($extension);
-        $unique_name = rand(1100, 999).rand(100, 999).'.'.$ext;
-        $db_image_file = "uploaded/".$unique_name;
-        $image_folder = "uploaded/".$unique_name;
         $data = [
           'id' => $id,
           'category' => $_POST['category'],
           'condition' => $_POST['condition'],
           'brand' => $_POST['brand'],
           'image' => $db_image_file,
+          'image2' => $db_image_file2,
+          'image3' => $db_image_file3,
           'description' => trim($_POST['description']),
           'model' => trim($_POST['model']),
           'price' => trim($_POST['price']),
           'color' => trim($_POST['color']),
-          'move'  =>  move_uploaded_file($_FILES['picture']['tmp_name'],$image_folder)
+          
         ]; 
   
         if($this->productModel->update($data)){
-          move_uploaded_file($_FILES['picture']['tmp_name'],$image_folder);
-          flash('success', 'Add Product Successfull');
+          
+          flash('success', 'Changes made Successfull');
           redirect('admin/show');
         } else {
           die('Something went wrong');
         }
-
+      }
       }else{
           //NO IMAGE EDIT
         $data = [
@@ -331,7 +393,7 @@ class Admin extends Controller {
         ]; 
   
         if($this->productModel->update1($data)){
-          flash('success', 'Add Product Successfull');
+          flash('success', 'Changes made Successfull');
           redirect('admin/show');
         } else {
           die('Something went wrong');

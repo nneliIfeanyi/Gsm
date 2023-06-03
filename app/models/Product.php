@@ -8,6 +8,30 @@ class Product {
     }
 
     public function add_product($data){
+        $this->db->query('INSERT INTO products (brand,model,description,category,sub_cate,price,img,img2,img3,color,cond_tion,s_id,seller) VALUES(:brand,:model,:description,:category,:sub_cate,:price,:img,:img2,:img3,:color,:condition,:user_id,:user_name)');
+        $this->db->bind(':brand', $data['brand']);
+        $this->db->bind(':model', $data['model']);
+        $this->db->bind(':description', $data['description']);
+        $this->db->bind(':category', $data['category']);
+         $this->db->bind(':sub_cate', $data['sub_cate']);
+        $this->db->bind(':price', $data['price']);
+        $this->db->bind(':img', $data['image']);
+        $this->db->bind(':img2', $data['image2']);
+        $this->db->bind(':img3', $data['image3']);
+        $this->db->bind(':color', $data['color']);
+        $this->db->bind(':condition', $data['condition']);
+        $this->db->bind(':user_id', $data['user_id']);
+        $this->db->bind(':user_name', $data['user_name']);
+        
+        if ($this->db->execute()) {
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+
+    public function add_product2($data){
         $this->db->query('INSERT INTO products (brand,model,description,category,sub_cate,price,img,color,cond_tion,s_id,seller) VALUES(:brand,:model,:description,:category,:sub_cate,:price,:img,:color,:condition,:user_id,:user_name)');
         $this->db->bind(':brand', $data['brand']);
         $this->db->bind(':model', $data['model']);
@@ -32,7 +56,7 @@ class Product {
     // Update Post
     public function update($data){
       // Prepare Query
-      $this->db->query('UPDATE products SET brand = :brand, model = :model, description = :des, price = :price, img = :image, color = :color WHERE id = :id');
+      $this->db->query('UPDATE products SET brand = :brand, model = :model, description = :des, price = :price, img = :image, img2 = :image2, img3 = :image3, color = :color WHERE id = :id');
 
       // Bind Values
       $this->db->bind(':id', $data['id']);
@@ -41,6 +65,8 @@ class Product {
       $this->db->bind(':des', $data['description']);
       $this->db->bind(':price', $data['price']);
       $this->db->bind(':image', $data['image']);
+      $this->db->bind(':image2', $data['image2']);
+      $this->db->bind(':image3', $data['image3']);
       $this->db->bind(':color', $data['color']);
       
       //Execute

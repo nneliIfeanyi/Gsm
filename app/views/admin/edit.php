@@ -57,7 +57,19 @@
 
         <div class="form-group">
             <input type="file" name="picture" class="form-control form-control-lg">
-        </div><br>
+        </div>
+        <div class="form-group">
+            <input type="file" name="picture2" class="form-control form-control-lg">
+        </div>
+        <div class="form-group">
+            <input type="file" name="picture3" class="form-control form-control-lg">
+        </div>
+
+
+
+
+
+        <br>
 	  	
          <p class="pull-right "><input type="submit" class="btn btn-success btn-block" value="Proceed"></p>
       </form>
