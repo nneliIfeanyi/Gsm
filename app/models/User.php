@@ -46,6 +46,20 @@ class User{
         }
       }
 
+      public function findUserByName($name){
+        $this->db->query("SELECT * FROM users WHERE name = :name");
+        $this->db->bind(':name', $name);
+  
+        $row = $this->db->single();
+  
+        //Check Rows
+        if($this->db->rowCount() > 0){
+          return true;
+        } else {
+          return false;
+        }
+      }
+
 
        public function send_link($phone){
         $this->db->query("SELECT * FROM users WHERE phone = :phone");

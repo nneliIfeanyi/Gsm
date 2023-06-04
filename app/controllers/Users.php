@@ -13,11 +13,11 @@ class Users extends Controller{
       if($_SERVER['REQUEST_METHOD'] == 'POST'){
         // Sanitize POST
         $_POST  = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
-
+        $phone = ltrim($_POST['phone'], '\0');
         $data = [
           'img' => 'uploaded/avatar_guy.png',
           'name' => trim($_POST['name']),
-          'phone' => trim($_POST['phone']),
+          'phone' => $phone,
           'address' => trim($_POST['address']),
           'password' => trim($_POST['password']),
           'confirm_password' => trim($_POST['confirm_password']),
@@ -28,48 +28,41 @@ class Users extends Controller{
           'password_err' => '',
           'confirm_password_err' => ''
         ];
-         // Validate email
-         if(empty($data['phone'])){
-          $data['phone_err'] = 'Please enter a phone number';
-          // Validate name
-          if(empty($data['name'])){
-            $data['name_err'] = 'Please enter a name';
-          }
-      } 
 
-        // Validate password
-        if(empty($data['password'])){
+        if(empty($data['name'])){
+            $data['name_err'] = 'Please enter a name';
+            $this->view('users/register', $data);
+
+        }elseif(empty($data['phone'])){
+            $data['phone_err'] = 'Please enter a phone number';
+            $this->view('users/register', $data);
+
+        }elseif(empty($data['password'])){
             $data['password_err'] = 'Please enter a password.';     
+            $this->view('users/register', $data);
+
         } elseif(strlen($data['password']) < 6){
           $data['password_err'] = 'Password must have atleast 6 characters.';
-        }
+          $this->view('users/register', $data);
 
-        // Validate confirm password
-        if(empty($data['confirm_password'])){
+        }elseif(empty($data['confirm_password'])){
           $data['confirm_password_err'] = 'Please confirm password.';     
-        } else{
-            if($data['password'] != $data['confirm_password']){
-                $data['confirm_password_err'] = 'Password do not match.';
-            }
-        }
+          $this->view('users/register', $data);
 
-       
-            
-         
-        // Make sure errors are empty
-        if(empty($data['name_err']) && empty($data['email_err']) && empty($data['password_err']) && empty($data['confirm_password_err'])){
-         
-          if($this->userModel->findUserByPhone($data['phone'])){
+        } elseif($data['password'] != $data['confirm_password']){
+          $data['confirm_password_err'] = 'Password do not match.';
+          $this->view('users/register', $data);
+
+        }elseif($this->userModel->findUserByPhone($data['phone'])){
             $data['phone_err'] = 'Phone number is already taken.';
             $this->view('users/register', $data);
-          }else{
 
-            // SUCCESS - Proceed to insert
+        }elseif($this->userModel->findUserByName($data['name'])){
+            $data['name_err'] = 'Username already exits.';
+            $this->view('users/register', $data);
+            
+        }else{
 
-          // Hash Password
-          //$data['password'] = password_hash($data['password'], PASSWORD_DEFAULT);
-
-          //Execute
           if($this->userModel->register($data)){
             // Redirect to login
             flash('register_success', 'You are now registered and can log in');
@@ -78,11 +71,8 @@ class Users extends Controller{
             die('Something went wrong');
           }
 
-          }  
-        } else {
-          // Load View
-          $this->view('users/register', $data);
         }
+      
       } else {
         // IF NOT A POST REQUEST
 
@@ -114,9 +104,9 @@ class Users extends Controller{
     if($_SERVER['REQUEST_METHOD'] == 'POST'){
       // Sanitize POST
       $_POST  = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
-      
+      $phone = ltrim($_POST['phone'], '\0');
       $data = [       
-        'phone' => trim($_POST['phone']),
+        'phone' => $phone,
         'password' => trim($_POST['password']),        
         'phone_err' => '',
         'password_err' => '',       
@@ -200,9 +190,10 @@ class Users extends Controller{
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       $_POST  = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
-      
+      $phone = ltrim($_POST['phone'], '\0');
+
       $data = [      
-        'phone' => trim($_POST['phone']),
+        'phone' => $phone,
         'phone_err' => '',
       ];
 
@@ -244,7 +235,7 @@ class Users extends Controller{
      public function now_reset(){
        if (!isset($_SESSION['phone'])) {
           redirect('pages');
-        } 
+        }
 
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
           $_POST  = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
@@ -255,23 +246,18 @@ class Users extends Controller{
             'password_err' => '',
           ];
 
-           if(empty($data['pasword'])){
-            $data['pasword_err'] = 'Please enter new password.';
+           if(empty($data['password'])){
+            $data['password_err'] = 'Please enter new password.';
             $this->view('users/now_reset', $data);
           }elseif(strlen($data['password']) < 6 ){
             $data['password_err'] = 'Too short, must be more than 5 digits.';
             $this->view('users/now_reset', $data);
           }else{
 
-              if($this->userModel->new_pass($data)){
-                // Redirect to login
-                flash('reset_success', 'You can now log in');
-                redirect('users/login');
-                } else {
-                die('Something went wrong');
-                }
+              $this->userModel->new_pass($data);
                 
-              }
+                redirect('users/login');
+          }
 
         }
       
@@ -284,8 +270,4 @@ class Users extends Controller{
      
       $this->view('users/now_reset', $data);
     }
-
-
-
   }
-  
