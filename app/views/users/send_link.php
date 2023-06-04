@@ -7,7 +7,7 @@
         <h2>Reset your password</h2>
 
 
-        <a href="https://wa.me/<?= $data['user']->phone ;?>?text=<?=URLROOT.'/'.'users'.'/'.'now_reset'?>" class="btn btn-success btn-block"><i class="fa fa-whatsapp fa-fw"></i>Send me a password reset link</a>
+        <a href="https://wa.me/<?= $data['user']->phone ;?>?text=use%20this%20link%20to%20resetYourPassword%20<?=URLROOT.'/'.'users'.'/'.'now_reset'?>" class="btn btn-success btn-block"><i class="fa fa-whatsapp fa-fw"></i>Send me a password reset link</a>
         
       </div>
     </div>
