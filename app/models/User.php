@@ -47,6 +47,36 @@ class User{
       }
 
 
+       public function send_link($phone){
+        $this->db->query("SELECT * FROM users WHERE phone = :phone");
+        $this->db->bind(':phone', $phone);
+  
+        $row = $this->db->single();
+
+        return $row;
+      }
+
+
+
+      public function new_pass($data){
+      // Prepare Query
+      $this->db->query('UPDATE users SET password = :password WHERE phone = :phone');
+
+      // Bind Values
+      $this->db->bind(':phone', $data['phone']);
+      $this->db->bind(':password', $data['password']);
+      
+      //Execute
+      if($this->db->execute()){
+        return true;
+      } else {
+        return false;
+      }
+    }
+
+
+
+
        public function posted(){
         $this->db->query("SELECT * FROM products WHERE seller = :name AND category = 'smartphone' ");
         $this->db->bind(':name', $_SESSION['user_name']);

@@ -196,6 +196,94 @@ class Users extends Controller{
     $this->view('users/view_p', $data);
   }
 
+  public function pwd_reset(){
+
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+      $_POST  = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+      
+      $data = [      
+        'phone' => trim($_POST['phone']),
+        'phone_err' => '',
+      ];
+
+       if(empty($data['phone'])){
+        $data['phone_err'] = 'Please enter phone number.';
+        $this->view('users/pwd_reset', $data);
+      }elseif(!$this->userModel->findUserByPhone($data['phone'])){
+        $data['phone_err'] = 'This number is not registered.';
+        $this->view('users/pwd_reset', $data);
+      }else{
+            $_SESSION['phone'] = $data['phone'];
+            redirect('users/send_link');
+          }
+
+    }
+    
+    $data = [
+       'phone' => '',
+       'phone_err' => '', 
+    ];
+   
+    $this->view('users/pwd_reset', $data);
+  }
+
+
+    public function send_link(){
+        
+      $suspectedUser = $this->userModel->send_link( $_SESSION['phone']);
+      $data = [
+
+        'user' => $suspectedUser,
+
+      ];
+     
+      $this->view('users/send_link', $data);
+    }
+
+
+     public function now_reset(){
+       if (!isset($_SESSION['phone'])) {
+          redirect('pages');
+        } 
+
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+          $_POST  = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+          
+          $data = [     
+            'phone' => $_SESSION['phone'],
+            'password' => trim($_POST['password']),
+            'password_err' => '',
+          ];
+
+           if(empty($data['pasword'])){
+            $data['pasword_err'] = 'Please enter new password.';
+            $this->view('users/now_reset', $data);
+          }elseif(strlen($data['password']) < 6 ){
+            $data['password_err'] = 'Too short, must be more than 5 digits.';
+            $this->view('users/now_reset', $data);
+          }else{
+
+              if($this->userModel->new_pass($data)){
+                // Redirect to login
+                flash('reset_success', 'You can now log in');
+                redirect('users/login');
+                } else {
+                die('Something went wrong');
+                }
+                
+              }
+
+        }
+      
+      $data = [
+
+        'password' => '',
+        'password_err' => '',
+
+      ];
+     
+      $this->view('users/now_reset', $data);
+    }
 
 
 
