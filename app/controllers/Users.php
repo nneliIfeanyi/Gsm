@@ -60,7 +60,7 @@ class Users extends Controller{
         }elseif($this->userModel->findUserByName($data['name'])){
             $data['name_err'] = 'Username already exits.';
             $this->view('users/register', $data);
-            
+
         }else{
 
           if($this->userModel->register($data)){
@@ -255,7 +255,7 @@ class Users extends Controller{
           }else{
 
               $this->userModel->new_pass($data);
-                
+                unset($_SESSION['phone']);
                 redirect('users/login');
           }
 
