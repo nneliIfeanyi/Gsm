@@ -14,13 +14,14 @@ class Users extends Controller{
         // Sanitize POST
         $_POST  = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
         $phone = ltrim($_POST['phone'], '\0');
+        $pass = trim($_POST['password']);
+        $c_pass = trim($_POST['confirm_password']);
         $data = [
           'img' => 'uploaded/avatar_guy.png',
           'name' => trim($_POST['name']),
           'phone' => $phone,
           'address' => trim($_POST['address']),
-          'password' => trim($_POST['password']),
-          'confirm_password' => trim($_POST['confirm_password']),
+          'password' => md5($pass),
           'level' => 'one',
           'name_err' => '',
           'phone_err' => '',
@@ -37,19 +38,19 @@ class Users extends Controller{
             $data['phone_err'] = 'Please enter a phone number';
             $this->view('users/register', $data);
 
-        }elseif(empty($data['password'])){
+        }elseif(empty($pass)){
             $data['password_err'] = 'Please enter a password.';     
             $this->view('users/register', $data);
 
-        } elseif(strlen($data['password']) < 6){
+        } elseif(strlen($pass < 6)){
           $data['password_err'] = 'Password must have atleast 6 characters.';
           $this->view('users/register', $data);
 
-        }elseif(empty($data['confirm_password'])){
+        }elseif(empty($c_pass)){
           $data['confirm_password_err'] = 'Please confirm password.';     
           $this->view('users/register', $data);
 
-        } elseif($data['password'] != $data['confirm_password']){
+        } elseif($pass != $c_pass){
           $data['confirm_password_err'] = 'Password do not match.';
           $this->view('users/register', $data);
 
@@ -105,9 +106,10 @@ class Users extends Controller{
       // Sanitize POST
       $_POST  = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
       $phone = ltrim($_POST['phone'], '\0');
+      $pass = trim($_POST['password']);
       $data = [       
         'phone' => $phone,
-        'password' => trim($_POST['password']),        
+        'password' => md5($pass),       
         'phone_err' => '',
         'password_err' => '',       
       ];
@@ -115,7 +117,7 @@ class Users extends Controller{
       // Check for email
       if(empty($data['phone'])){
         $data['phone_err'] = 'Please enter phone number.';
-      }else if(empty($data['password'])){
+      }else if(empty($pass)){
         $data['password_err'] = 'Please enter password.';
       }else if(!$this->userModel->findUserByPhone($data['phone'])){
         $data['phone_err'] = 'This number is not registered.';
@@ -270,4 +272,8 @@ class Users extends Controller{
      
       $this->view('users/now_reset', $data);
     }
+
+
+
+    
   }
