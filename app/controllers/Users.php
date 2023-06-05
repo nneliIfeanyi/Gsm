@@ -164,7 +164,7 @@ class Users extends Controller{
   // Create Session With User Info
   public function createUserSession($user){
     $_SESSION['user_id'] = $user->id;
-    $_SESSION['user_email'] = $user->email; 
+    $_SESSION['user_phone'] = $user->phone; 
     $_SESSION['user_name'] = $user->name;
     $_SESSION['address'] = $user->address;
     redirect('pages');
