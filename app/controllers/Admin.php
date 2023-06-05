@@ -81,9 +81,9 @@ class Admin extends Controller {
           $imageTemp3 = $_FILES["picture3"]["tmp_name"]; 
            
           // Compress size and upload image 
-          compressImage($imageTemp, $imageUploadPath, 65);
-          compressImage($imageTemp2, $imageUploadPath2, 65);
-          compressImage($imageTemp3, $imageUploadPath3, 65); 
+          compressImage($imageTemp, $imageUploadPath, 9);
+          compressImage($imageTemp2, $imageUploadPath2, 9);
+          compressImage($imageTemp3, $imageUploadPath3, 9); 
 
           $data = [
             'user_id' => $_SESSION['user_id'],
@@ -162,7 +162,7 @@ class Admin extends Controller {
           $imageTemp = $_FILES["picture"]["tmp_name"]; 
            
           // Compress size and upload image 
-          compressImage($imageTemp, $imageUploadPath, 65); 
+          compressImage($imageTemp, $imageUploadPath, 9); 
           
       
       $data = [
@@ -254,7 +254,7 @@ class Admin extends Controller {
           $imageTemp = $_FILES["picture"]["tmp_name"]; 
            
           // Compress size and upload image 
-          compressImage($imageTemp, $imageUploadPath, 65); 
+          compressImage($imageTemp, $imageUploadPath, 9); 
       $data = [
         'user_id' => $_SESSION['user_id'],
         'user_name' => $_SESSION['user_name'],
@@ -347,9 +347,9 @@ class Admin extends Controller {
           $imageTemp3 = $_FILES["picture3"]["tmp_name"]; 
            
           // Compress size and upload image 
-          compressImage($imageTemp, $imageUploadPath, 65);
-          compressImage($imageTemp2, $imageUploadPath2, 65);
-          compressImage($imageTemp3, $imageUploadPath3, 65); 
+          compressImage($imageTemp, $imageUploadPath, 9);
+          compressImage($imageTemp2, $imageUploadPath2, 9);
+          compressImage($imageTemp3, $imageUploadPath3, 9); 
 
         $data = [
           'id' => $id,
