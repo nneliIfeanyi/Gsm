@@ -241,17 +241,17 @@ class Users extends Controller{
 
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
           $_POST  = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
-          
+          $pass = trim($_POST['password']);
           $data = [     
             'phone' => $_SESSION['phone'],
-            'password' => trim($_POST['password']),
+            'password' => md5($pass),
             'password_err' => '',
           ];
 
-           if(empty($data['password'])){
+           if(empty($pass){
             $data['password_err'] = 'Please enter new password.';
             $this->view('users/now_reset', $data);
-          }elseif(strlen($data['password']) < 6 ){
+          }elseif(strlen($pass) < 6 ){
             $data['password_err'] = 'Too short, must be more than 5 digits.';
             $this->view('users/now_reset', $data);
           }else{
