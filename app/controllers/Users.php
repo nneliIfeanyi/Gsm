@@ -248,7 +248,7 @@ class Users extends Controller{
             'password_err' => '',
           ];
 
-           if(empty($pass){
+           if(empty($pass)){
             $data['password_err'] = 'Please enter new password.';
             $this->view('users/now_reset', $data);
           }elseif(strlen($pass) < 6 ){
