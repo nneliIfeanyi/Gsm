@@ -15,7 +15,7 @@
             <div class="row">
                 <small class="fs-6"><span class="fw-bold fs-6">Search hint : </span><span class="fs-6">Just type in <span class="text-success">Tecno</span> for all Tecno products or <span class="text-success">infinix</span> or <span class="text-success">samsung</span> etc</span></small>
                
-                <div class="col-md-6 pb-4">
+                <div class="col-12 py-3">
                     <?php include APPROOT . '/views/inc/search.php'; ?>
                 </div>
                 <div class="col-12">
