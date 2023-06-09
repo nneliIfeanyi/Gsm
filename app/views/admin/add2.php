@@ -1,41 +1,6 @@
 <?php require APPROOT . '/views/inc/header.php'; ?>
 <div class="mx-auto mt-2 container text-center"><?php flash('msg'); ?></div>
-<?php
-
-    //Level one validate
-    if ($data['access']->level === 'one') {
-        ?>
-        <div class="container pt-3">
-        <div class="row">
-        <?php include APPROOT . '/views/admin/inc.php' ?>
-        <div class="col-md-9 mb-5 mx-auto">
-             <div class="card mx-auto" style="height: 90px; width: 90px;">
-            <img class="card-img" src="<?= URLROOT?>/img/denied.png">
-            </div>
-        <h2 class="text-center mt-2">ACCESS DENIED</h2>
-        <?php 
-
-      //Level one validate ends
-      
-      //Level two validate  
-    }elseif ($data['access']->level === 'two') {
-        ?>
-        <div class="container pt-3">
-        <div class="row">
-        <?php include APPROOT . '/views/admin/inc.php' ?>
-        <div class="col-md-9 mb-5 mx-auto">
-            <div class="card mx-auto" style="height: 90px; width: 90px;">
-            <img class="card-img" src="<?= URLROOT?>/img/denied.png">
-            </div>
-        <h2 class="text-center mt-2">ACCESS DENIED</h2>
-        <?php 
-
-        //Level two validate ends
-
-        //Level three validate
-    }else{
-        ?>
-        <div class="container pt-3">
+   <div class="container pt-3">
         <div class="row">
         <?php include APPROOT . '/views/admin/inc.php' ?>
         <div class="col-md-9 mb-5 mx-auto">
@@ -100,10 +65,6 @@
         </div>
       </form>
     </div>
-    <?php
-    }
-
-?>
   </div>
 </div>
 </div>

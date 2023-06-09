@@ -23,9 +23,9 @@
               <input type="submit" class="btn btn-success btn-block" value="Login">
             </div>
            
-            <div class="col-12">
+            <!--<div class="col-12">
               <a href="<?php echo URLROOT; ?>/users/register" class="btn btn-light btn-block">No account? Register</a>
-            </div>
+            </div>-->
               <div class="col-12 mb-2">
              <a href="<?php echo URLROOT; ?>/users/pwd_reset" class="btn btn-block">Forgot password?</a>
             </div>

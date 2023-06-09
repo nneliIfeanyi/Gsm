@@ -15,11 +15,9 @@ class Admin extends Controller {
    //======================
 
    public function index(){
-      $access = $this->userModel->userLevel();
       $products = $this->productModel->getProduct();
       $data = [
         'title' => 'All Products',
-         'access' => $access,
         'products' => $products
       ];
    
@@ -50,7 +48,6 @@ class Admin extends Controller {
 //======================
 
   public function add(){
-     $access = $this->userModel->userLevel();
      $uploadPath = "uploaded/";
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       $_POST = filter_input_array(INPUT_POST, FILTER_DEFAULT);
@@ -111,12 +108,8 @@ class Admin extends Controller {
         }
 
     }else{
-        if(!isset($_SESSION['user_id'])){
-          redirect('users/login');
-        }
        
         $data = [
-          'access' => $access,
           'category' => '',
           'condition' => '',
           'model' => '',
@@ -141,7 +134,6 @@ class Admin extends Controller {
 
     //========================FOR ACCESSORIES
   public function add2(){
-    $access = $this->userModel->userLevel();
     $uploadPath = "uploaded/";
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       $_POST = filter_input_array(INPUT_POST, FILTER_DEFAULT);
@@ -183,15 +175,6 @@ class Admin extends Controller {
         'descErr' => ''
       ]; 
 
-      if ($access->level === 'two') {
-       flash('msg', 'ACCESS DENIED');
-       redirect('admin/add2');
-      }elseif ($access->level === 'one') {
-       flash('msg', 'ACCESS DENIED');
-       redirect('admin/add2');
-      }else{
-
-
       if($this->productModel->add_product2($data)){
       
         flash('success', 'Add Product Successfull');
@@ -200,16 +183,11 @@ class Admin extends Controller {
         die('Something went wrong');
       }
 
-      }
   }   
 
    //=======IF NOT A POST REQUEST==========//////
       }else{
-        if(!isset($_SESSION['user_id'])){
-          redirect('users/login');
-        }
         $data = [
-          'access' => $access,
           'category' => '',
           'condition' => '',
           'model' => '',
@@ -231,7 +209,7 @@ class Admin extends Controller {
     }
 //===============================ACCESSORIES ENDS========/////
 
-    //========================FOR PHONE PARTS
+    /*========================FOR PHONE PARTS
 
   public function add3(){
     $uploadPath = "uploaded/";
@@ -309,7 +287,7 @@ class Admin extends Controller {
         $this->view('admin/add3', $data);
         }
     }
-//===============================
+*/
 
 
     //====================== Edit Product
@@ -449,12 +427,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       'phone' => trim($_POST['phone']),
       'address' => trim($_POST['address']),
     ]; 
-    
-    if ($this->userModel->edit_profile($data)) {
+
+    if ($this->userModel->edit_profile($data) ) {
       $_SESSION['user_phone'] = trim($_POST['phone']); 
       $_SESSION['user_name'] = trim($_POST['name']);
       $_SESSION['address'] = trim($_POST['address']);
-  
      flash('success', 'Update saved');
      redirect('admin/setting');
     }

@@ -8,7 +8,7 @@ class Product {
     }
 
     public function add_product($data){
-        $this->db->query('INSERT INTO products (brand,model,description,category,sub_cate,price,img,img2,img3,color,cond_tion,s_id,seller) VALUES(:brand,:model,:description,:category,:sub_cate,:price,:img,:img2,:img3,:color,:condition,:user_id,:user_name)');
+        $this->db->query('INSERT INTO products (brand,model,description,category,sub_cate,price,img,img2,img3,color,cond_tion,s_id) VALUES(:brand,:model,:description,:category,:sub_cate,:price,:img,:img2,:img3,:color,:condition,:user_id)');
         $this->db->bind(':brand', $data['brand']);
         $this->db->bind(':model', $data['model']);
         $this->db->bind(':description', $data['description']);
@@ -21,7 +21,6 @@ class Product {
         $this->db->bind(':color', $data['color']);
         $this->db->bind(':condition', $data['condition']);
         $this->db->bind(':user_id', $data['user_id']);
-        $this->db->bind(':user_name', $data['user_name']);
         
         if ($this->db->execute()) {
             return true;
@@ -32,7 +31,7 @@ class Product {
 
 
     public function add_product2($data){
-        $this->db->query('INSERT INTO products (brand,model,description,category,sub_cate,price,img,color,cond_tion,s_id,seller) VALUES(:brand,:model,:description,:category,:sub_cate,:price,:img,:color,:condition,:user_id,:user_name)');
+        $this->db->query('INSERT INTO products (brand,model,description,category,sub_cate,price,img,color,cond_tion,s_id) VALUES(:brand,:model,:description,:category,:sub_cate,:price,:img,:color,:condition,:user_id)');
         $this->db->bind(':brand', $data['brand']);
         $this->db->bind(':model', $data['model']);
         $this->db->bind(':description', $data['description']);
@@ -43,7 +42,6 @@ class Product {
         $this->db->bind(':color', $data['color']);
         $this->db->bind(':condition', $data['condition']);
         $this->db->bind(':user_id', $data['user_id']);
-        $this->db->bind(':user_name', $data['user_name']);
         
         if ($this->db->execute()) {
             return true;
@@ -124,9 +122,8 @@ class Product {
 
  // Get per user Products
     public function getUserProduct(){
-        $this->db->query("SELECT * FROM products WHERE s_id = :id AND seller = :user ORDER BY id DESC");
+        $this->db->query("SELECT * FROM products WHERE s_id = :id ORDER BY id DESC");
         $this->db->bind(':id', $_SESSION['user_id']);
-        $this->db->bind(':user', $_SESSION['user_name']);
         $results = $this->db->resultset();
   
         return $results;

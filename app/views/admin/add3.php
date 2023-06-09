@@ -1,4 +1,4 @@
-<?php require APPROOT . '/views/inc/header.php'; ?>
+<!--<?php require APPROOT . '/views/inc/header.php'; ?>
 
         <div class="container pt-3">
         <div class="row">
@@ -73,4 +73,4 @@
   </div>
 </div>
 </div>
-<?php require APPROOT . '/views/inc/footer.php'; ?>
+<?php require APPROOT . '/views/inc/footer.php'; ?>-->

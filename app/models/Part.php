@@ -1,4 +1,4 @@
-<?php
+<?php/*
 class Part {
 
     private $db;
@@ -71,4 +71,4 @@ class Part {
   
         return $results;
     }
-}
+}*/

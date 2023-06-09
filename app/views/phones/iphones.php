@@ -1,7 +1,7 @@
 <?php require APPROOT . '/views/inc/header.php'; ?>
 <div class="mx-auto"><?php flash('login_success'); ?></div>
     <!-- Start Content -->
-    <div class="container py-5">
+    <div class="container py-3">
         <div class="row">
 
            <?php include APPROOT . '/views/inc/nav.php'; ?>

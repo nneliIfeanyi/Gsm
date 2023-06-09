@@ -1,4 +1,4 @@
-<?php
+<?php/*
   class Parts extends Controller {
 
     public $partsModel;
@@ -192,4 +192,4 @@
 
 
     
-  }
+  })*/

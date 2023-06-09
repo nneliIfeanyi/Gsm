@@ -37,21 +37,6 @@
 </div>
 </div>
 </div>
-<div class="carousel-item bg-white">
-<div class="container">
-<div class="row p-3">
-<div class="col-lg-6 col-6 mb-0 d-flex">
-<div class="text-align-left align-self-center fs-6">
-<!--<h1 class="h1 text-success"><?=$data['title']?></h1>-->
-<h3 class="">Parts</h3>
-</div>
-</div>
-<div class="mx-auto col-md-4 col-lg-6 col-6">
-<img class="" src="<?php echo URLROOT; ?>/img/lcd.jpg" alt="" height="100px">
-</div>
-</div>
-</div>
-</div>
 </div>
 <!--<a class="carousel-control-prev text-decoration-none w-auto ps-3" href="#template-mo-zay-hero-carousel" role="button" data-bs-slide="prev">
 <i class="fa fa-chevron-left"></i>

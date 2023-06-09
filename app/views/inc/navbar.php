@@ -19,14 +19,14 @@
 <li class="nav-item">
 <a class="nav-link" href="<?=URLROOT?>/phones">Phones</a>
 </li>
-<li class="nav-item">
+<!--<li class="nav-item">
 <a class="nav-link" href="<?=URLROOT?>/parts">Parts</a>
-</li>
+</li>-->
 <li class="nav-item">
 <a class="nav-link" href="<?=URLROOT?>/accessories">Accessories</a>
 </li>
 <li class="nav-item">
-<a class="nav-link" href="<?=URLROOT?>/admin">Sell</a>
+<a class="nav-link" href="<?=URLROOT?>/admin">Account</a>
 </li>
 
 <li class="nav-item">

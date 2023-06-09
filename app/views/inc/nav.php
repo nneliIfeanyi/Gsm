@@ -1,5 +1,5 @@
             <div class="col-lg-3">
-                <h1 class="h2 pb-3">Categories</h1>
+                <h1 class="h2 pb-2 fw-bold">Products</h1>
                 <ul class="list-unstyled templatemo-accordion">
                     <li class="pb-2">
                         <a class="collapsed d-flex justify-content-between h3 text-decoration-none" href="#">
@@ -9,7 +9,7 @@
                         <ul class="collapse show list-unstyled pl-3">
                             <li><a class="text-decoration-none" href="<?=URLROOT?>/phones/iphones">iPhones</a></li>
                             <li><a class="text-decoration-none" href="<?=URLROOT?>/phones/android">Android Phones</a></li>
-                            <li><a class="text-decoration-none" href="<?=URLROOT?>/phones/others">Button Phones</a></li>
+                            <li><a class="text-decoration-none" href="<?=URLROOT?>/phones/others">Other Phones</a></li>
                         </ul>
                     </li>
                    <li class="pb-2">
@@ -25,7 +25,7 @@
                             <li><a class="text-decoration-none fs-6" href="<?=URLROOT?>/accessories/battery">Batteries</a></li>
                         </ul>
                     </li>
-                    <li class="pb-2">
+                    <!--<li class="pb-2">
                         <a class="collapsed d-flex justify-content-between h3 text-decoration-none" href="#">
                             Phone Parts
                             <i class="fa fa-fw fa-chevron-circle-down mt-1"></i>
@@ -40,6 +40,6 @@
                             <li><a class="text-decoration-none fs-6" href="<?=URLROOT?>/parts/others">Others</a></li>
                             <li><a class="text-decoration-none fs-6" href="<?=URLROOT?>/parts/tools">Tools</a></li>
                         </ul>
-                    </li>
+                    </li>-->
                 </ul>
             </div>

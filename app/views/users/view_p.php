@@ -124,35 +124,6 @@
 <p class="text-success fw-bold"><strong>&#8358;<?= $data['product']->price ?>.00</strong></p>
 </li>
 </ul>
-<!--<form action="<?php echo URLROOT; ?>/users/review" method="POST">
-<input type="hidden" name="id" id="quantity" value="<?=$data['product']->id?>">
-<input type="hidden" name="brand" value="<?=$data['product']->brand?>">
-<input type="hidden" name="model" value="<?=$data['product']->model?>">
-<input type="hidden" name="category" value="<?=$data['product']->category?>">
-<input type="hidden" name="sub_category" value="<?=$data['product']->sub_cate?>">
-<input type="hidden" name="desc" value="<?=$data['product']->description?>">
-<input type="hidden" name="picture" value="<?=$data['product']->img?>">
-<input type="hidden" name="price" value="<?=$data['product']->price?>">
-<input type="hidden" name="color" value="<?=$data['product']->color?>">
-<input type="hidden" name="condition" value="<?=$data['product']->cond_tion?>">
-<div class="row">
-<div class="col-auto">
-<ul class="list-inline pb-3">
-<p class="fw-bold">Select Quantity</p> 
-<li class="list-inline-item text-right">
-Quantity
-<input type="number" id="quantity" name="quantity" style="width: 16%; border: 3px solid grey;border-radius:25%;" value="1" min="1" class="">
-</li>
-</ul>
-</div>
-</div>
-
-<div class="row pb-3">
-<div class="col d-grid">
-<input type="submit" name="submit" value="Buy now" class="btn btn-success btn-lg">
-</div>
-</div>
-</form>-->
 </div>
 </div>
 <div class=" bg-light">
@@ -162,15 +133,15 @@ Quantity
 <img class="card-img rounded-circle" src="<?= URLROOT. '/'. $data['seller']->img ?>" style="height: 70px;">
 </div>
 <div class="col-8 lh-1 p-2 mb-2">
-<p class="text-success text-muted"><?= $data['product']->seller ?></p>
+<p class="text-success text-muted"><?= $data['seller']->name ?></p>
 <p class="fs-6"><i class="fa fa-map-marker fa-sm"></i> <?= $data['seller']->address ?>.</p>
-<p class="fs-6"><i class="fa fa-truck fa-sm"></i> Delivery within Abuja and environs</p>
+<p class="fs-6"><i class="fa fa-truck fa-sm"></i> Delivery services available</p>
 </div>
 </div>
 <?php if($data['seller']->level === 'three') :?> 
 <div class="row">
 <div class="col d-grid">
-<a href="https://wa.me/9168655298?text=I%20am%20interested%20in%20buying%20this%20<?=URLROOT.'/'.'users'.'/'.'view_p'.'/'.$data['product']->id?>" class="btn btn-success btn-block"><i class="fa fa-whatsapp fa-fw"></i>Whatsapp</a>
+<a href="https://wa.me/8122321931?text=I%20am%20interested%20in%20buying%20this%20<?=URLROOT.'/'.'users'.'/'.'view_p'.'/'.$data['product']->id?>" class="btn btn-success btn-block"><i class="fa fa-whatsapp fa-fw"></i>Whatsapp</a>
 </div>
 <div class="col d-grid">
 <a href="tel:08122321931" class="btn btn-outline-success btn-block"><i class="fa fa-phone fa-fw"></i>Call Now</a>
@@ -190,7 +161,7 @@ Quantity
 </div>
 </div>
 <div class="mt-3">
-<p class="lead h4 text-center fw-bold py-2">Other Products By <span class="text-success"><?= $data['product']->seller ?></span></p> 
+<p class="lead h4 text-center fw-bold py-2">Other Products By <span class="text-success"><?= $data['seller']->name ?></span></p> 
  <div class="row">
     <?php foreach($data['sellerGoods'] as $product) : ?>
         <div class="col-6 col-md-3">

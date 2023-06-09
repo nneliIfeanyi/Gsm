@@ -1,6 +1,6 @@
 
             <div class="col-lg-3">
-                <h1 class="h2 pb-2">Menu</h1>
+                <h1 class="h2 pb-2">Dashboard</h1>
                 <ul class="list-unstyled templatemo-accordion">
                     <li class="pb-2">
                         <a class="collapsed d-flex justify-content-between h3 text-decoration-none" href="#">
@@ -11,7 +11,7 @@
                         
                                 <li><a class="text-decoration-none fs-6" href="<?=URLROOT?>/admin/add">Phone</a></li>
                                 <li><a class="text-decoration-none fs-6" href="<?=URLROOT?>/admin/add2">Accessories</a></li>
-                                <li><a class="text-decoration-none fs-6" href="<?=URLROOT?>/admin/add3">Parts</a></li>
+                                <!--<li><a class="text-decoration-none fs-6" href="<?=URLROOT?>/admin/add3">Parts</a></li>-->
                         </ul>
                     </li>
                     <li class="pb-2">

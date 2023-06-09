@@ -140,7 +140,6 @@ class User{
     }
 
 
-
        public function posted(){
         $this->db->query("SELECT * FROM products WHERE seller = :name AND category = 'smartphone' ");
         $this->db->bind(':name', $_SESSION['user_name']);
