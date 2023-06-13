@@ -7,7 +7,7 @@ overflow:hidden;
 position: relative;
 }
 .cssmarquee h1 {
-font-size: 1em;
+font-size: .7em;
 position: absolute;
 width: 100%;
 height: 100%;
@@ -28,7 +28,7 @@ transform: translateX(-100%);
 </style>
  
 <div class="cssmarquee">
-<h1 class="text-success">Free delivery only on Fridays for orders made b4 ...</h1>
+<h1 class="text-success"><i class="fa fa-truck fa-s"></i>&nbsp;Free delivery only on Fridays for orders made before Friday...</h1>
 </div>
    
 <!-- Open Content -->
@@ -156,7 +156,7 @@ transform: translateX(-100%);
 </ul>
 </div>
 </div>
-<div class=" bg-light">
+<div class=" bg-light mb-3">
 <p class="lead fw-bold px-3">Seller Info</p> 
 <div class="row">
 <div class="col-4 px-4">
@@ -168,7 +168,7 @@ transform: translateX(-100%);
 <p class="fs-6"><i class="fa fa-truck fa-sm"></i> Delivery services available</p>
 </div>
 </div>
-<?php if($data['seller']->level === 'three') :?> 
+
 <div class="row">
 <div class="col d-grid">
 <a href="https://wa.me/8122321931?text=I%20am%20interested%20in%20buying%20this%20<?=URLROOT.'/'.'users'.'/'.'view_p'.'/'.$data['product']->id?>" class="btn btn-success btn-block"><i class="fa fa-whatsapp fa-fw"></i>Whatsapp</a>
@@ -177,19 +177,14 @@ transform: translateX(-100%);
 <a href="tel:08122321931" class="btn btn-outline-success btn-block"><i class="fa fa-phone fa-fw"></i>Call Now</a>
 </div>
 </div>
-<?php else :?>
-<div class="row">
-<div class="col d-grid">
-<a href="" class="btn btn-success btn-block">Whatsapp</a>
-</div>
-<div class="col d-grid">
-<a href="" class="btn btn-outline-success btn-block">Call Now</a>
+
 </div>
 </div>
-</div>
-<?php endif ;?>
-</div>
-</div>
+    
+
+
+
+
 <div class="mt-3">
 <p class="lead h4 text-center fw-bold py-2">Other Products By <span class="text-success"><?= $data['seller']->name ?></span></p> 
  <div class="row">
@@ -216,6 +211,26 @@ transform: translateX(-100%);
         <?php endforeach; ?>
  </div>
 </div>
+
+ <?php include APPROOT . '/views/inc/nav.php'; ?>
+      <div class="py-3 col-lg-9 bg-light mb-3">
+        <div class="row text-center">
+            <div class="col-lg-6 m-auto">
+                <img src="<?php echo URLROOT; ?>/img/cart.png" style="height: 100px;width: 150px;filter: invert(5.9%);">
+                <h1 class="h2 mt-2">We Run Errands</h1>
+                 <p>
+                    Couldn't find what you are looking for? Send us to the market.
+                </p>
+                <form action="<?php echo URLROOT; ?>/users/errands" class="form-inline" method="post">
+                   
+                 <div class="form-group mb-3">
+                      <textarea name="body" class="form-control form-control-lg" placeholder="your message here..."></textarea>
+                  </div>
+                      <input type="submit" class="btn btn-success btn-block" value="Submit">
+                </form>
+            </div>
+            </div>
+        </div>
 </div>
 </div>
 </section>
