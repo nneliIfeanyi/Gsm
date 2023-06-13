@@ -113,6 +113,15 @@ class Product {
 
     // Get All Products
     public function getProduct(){
+        $this->db->query("SELECT * FROM products ORDER BY id DESC LIMIT 8");
+  
+        $results = $this->db->resultset();
+  
+        return $results;
+      }
+
+       // Get All Products
+    public function getAllProduct(){
         $this->db->query("SELECT * FROM products ORDER BY id DESC");
   
         $results = $this->db->resultset();

@@ -188,6 +188,28 @@ class Users extends Controller{
     $this->view('users/view_p', $data);
   }
 
+
+
+
+
+  public function errands(){
+    if ($_SERVER['REQUEST_METHOD'] == 'POST'){
+      $data=[
+        'msg' => trim($_POST['body'])
+      ];
+
+    $this->view('users/errands', $data);
+    }else{ 
+   
+    redirect('pages');
+
+    }
+  }
+
+
+
+
+
   public function pwd_reset(){
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {

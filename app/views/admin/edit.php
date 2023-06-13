@@ -11,7 +11,7 @@
 
       <div class="form-group">
             <label>Category</label><br>
-            <select name="category" class="form-select" aria-label="Disabled select example" disabled>
+            <select name="category" class="form-select" aria-label="Disabled select example">
                 <option value="smartphone">Smart Phone</option>
                 <option value="accessories">Accessories</option>
                 <option value="parts">Parts</option>

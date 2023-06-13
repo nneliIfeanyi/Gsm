@@ -22,7 +22,7 @@
 </div>
 </div>
 
-<div class="carousel-item bg-white">
+<div class="carousel-item">
 <div class="container">
 <div class="row p-3">
 <div class="col-lg-6 col-6 mb-0 d-flex">
@@ -32,7 +32,7 @@
 </div>
 </div>
 <div class="mx-auto col-md-4 col-lg-6 col-6">
-<img class="" src="<?php echo URLROOT; ?>/img/dnl.jpeg" alt="" height="100px">
+<img class="" src="<?php echo URLROOT; ?>/img/dnl.jpeg" alt="" style="height: 100px;filter: invert(5.9%);">
 </div>
 </div>
 </div>

@@ -13,7 +13,7 @@
       
         $data = [
           'err' => '',
-          'title' => 'All Categories',
+          'title' => 'Recent Uploads',
           'description' => '',
           'products' => $products,
         ];
@@ -32,6 +32,33 @@
       $this->view('pages/index', $data);
     }
 
+
+    public function uploads(){
+      if (!empty($products = $this->productModel->getAllProduct())) {
+      
+        $data = [
+          'err' => '',
+          'title' => 'All Categories',
+          'description' => '',
+          'products' => $products,
+        ];
+
+      }else{
+
+       flash('success', 'Your products will appear here');
+       $data = [
+          'err' => '',
+          'title' => 'All Categories',
+          'description' => '',
+          'products' => $products,
+        ];
+      }
+
+      $this->view('pages/uploads', $data);
+    }
+
+
+    
 
 
      //====ABOUT PAGE VIEW DISPLAY

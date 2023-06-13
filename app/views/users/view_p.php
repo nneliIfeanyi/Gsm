@@ -1,5 +1,35 @@
 <?php require APPROOT . '/views/inc/header.php'; ?>
 
+<style>
+.cssmarquee {
+height: 50px;
+overflow:hidden;
+position: relative;
+}
+.cssmarquee h1 {
+font-size: 1em;
+position: absolute;
+width: 100%;
+height: 100%;
+margin: 0;
+line-height: 50px;
+text-align: left;
+transform:translateX(100%);
+animation: cssmarquee 12s linear infinite;
+}
+@keyframes cssmarquee {
+0% {
+transform: translateX(100%);
+}
+100% {
+transform: translateX(-100%);
+}
+}
+</style>
+ 
+<div class="cssmarquee">
+<h1 class="text-success">Free delivery only on Fridays for orders made b4 ...</h1>
+</div>
    
 <!-- Open Content -->
 <section class="">

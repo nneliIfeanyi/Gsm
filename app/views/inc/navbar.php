@@ -29,9 +29,9 @@
 <a class="nav-link" href="<?=URLROOT?>/admin">Account</a>
 </li>
 
-<li class="nav-item">
+<!--<li class="nav-item">
 <a class="nav-link" href="<?=URLROOT?>/pages/about">About</a>
-</li>
+</li>-->
 </ul>
 </div>
 </div>
