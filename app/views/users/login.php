@@ -2,7 +2,7 @@
 <div class="container">
 <div class="row">
     <div class="col-md-6 mb-5 mx-auto">
-      <div class="card card-body bg-light mt-5">
+      <div class="card card-body bg-light mt-3">
         <?php flash('register_success'); ?>
         <?php flash('reset_success'); ?>
         <h2>Login</h2>
@@ -23,9 +23,9 @@
               <input type="submit" class="btn btn-success btn-block" value="Login">
             </div>
            
-            <!--<div class="col-12">
-              <a href="<?php echo URLROOT; ?>/users/register" class="btn btn-light btn-block">No account? Register</a>
-            </div>-->
+            <div class="col-12">
+              <a href="<?=URLROOT?>/users/register" class="btn btn-light btn-block">Register</a>
+            </div>
               <div class="col-12 mb-2">
              <a href="<?php echo URLROOT; ?>/users/pwd_reset" class="btn btn-block">Forgot password?</a>
             </div>

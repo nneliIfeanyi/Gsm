@@ -7,7 +7,7 @@ overflow: hidden;
 position: relative;
 }
 .cssmarquee h1 {
-font-size: 1.2em;
+font-size: 1em;
 position: absolute;
 width: 100%;
 height: 100%;
@@ -27,8 +27,8 @@ transform: translateX(-100%);
 }
 </style>
  
-<div class="cssmarquee">
-<h1>Welcome to <span class="text-success"><?=SITENAME?></span> GSM market</h1>
+<div class="cssmarquee" style="background: ;">
+<h1 style="text-transform: lowercase;font-style: italic;">WELCOME TO <span class="text-success"><?=SITENAME?></span> E-SHOP</h1>
 </div>
 
 <?php include APPROOT . '/views/inc/showcase.php'; ?>
@@ -48,19 +48,13 @@ transform: translateX(-100%);
                         </li>
                     </ul>
                 </div>
-               
-                <div class="col-12 col-md-6">
-                    <?php include APPROOT . '/views/inc/search.php'; ?>
-                </div>
-                
 
                 <div class="mx-auto mt-2 container text-center"><?php flash('success'); ?></div>
-                <div class="mx-auto mt-2 container text-center"><?php flash('search_msg'); ?></div>
             </div>
 
             <?php include APPROOT . '/views/inc/sample.php'; ?>
             <div class="col-12 mb-2">
-             <a href="<?php echo URLROOT; ?>/pages/uploads" style="width: 100%;" class="btn btn-block btn-success">View More</a>
+             <a href="<?php echo URLROOT; ?>/pages/shop" style="width: 100%;" class="btn btn-block btn-success">View More</a>
             </div>
         </div>
 
@@ -96,10 +90,10 @@ transform: translateX(-100%);
     <!-- End Categories of The Month -->
 
      <?php include APPROOT . '/views/inc/nav.php'; ?>
-      <div class="py-3 col-lg-9 bg-light mb-3">
+      <div class="py-3 col-lg-9 border mb-3">
         <div class="row text-center">
             <div class="col-lg-6 m-auto">
-                <img src="<?php echo URLROOT; ?>/img/cart.png" style="height: 100px;width: 150px;filter: invert(5.9%);">
+                <img src="<?php echo URLROOT; ?>/img/errands.png" style="height: 100px;width: 150px;">
                 <h1 class="h2 mt-2">We Run Errands</h1>
                  <p>
                     Couldn't find what you are looking for? Send us to the market.

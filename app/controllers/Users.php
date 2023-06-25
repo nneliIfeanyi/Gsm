@@ -99,7 +99,7 @@ class Users extends Controller{
   public function login(){
     if($this->isLoggedIn()){
         flash('login_success', 'You are Logged in.');
-        redirect('admin');
+        redirect('posts');
       }
     // Check if POST
     if($_SERVER['REQUEST_METHOD'] == 'POST'){
@@ -194,11 +194,19 @@ class Users extends Controller{
 
   public function errands(){
     if ($_SERVER['REQUEST_METHOD'] == 'POST'){
-      $data=[
-        'msg' => trim($_POST['body'])
-      ];
 
-    $this->view('users/errands', $data);
+      if (!empty($_POST['body'])) {
+
+        $data=[
+        'msg' => trim($_POST['body'])
+        ];
+
+        $this->view('users/errands', $data);
+      }else{
+        flash('msg', 'An error occured, message box is empty.', 'alert alert-danger');
+         $this->view('users/errands');
+      }
+
     }else{ 
    
     redirect('pages');
@@ -296,6 +304,13 @@ class Users extends Controller{
     }
 
 
-
+        // Logout & Destroy Session
+    public function logout(){
+      unset($_SESSION['user_id']);
+      unset($_SESSION['user_email']);
+      unset($_SESSION['user_name']);
+      session_destroy();
+      redirect('users/login');
+    }
     
   }

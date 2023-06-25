@@ -140,21 +140,6 @@ class User{
     }
 
 
-       public function posted(){
-        $this->db->query("SELECT * FROM products WHERE seller = :name AND category = 'smartphone' ");
-        $this->db->bind(':name', $_SESSION['user_name']);
-  
-        $row = $this->db->single();
-  
-        //Check Rows
-        if($this->db->rowCount() > 0){
-          return true;
-        } else {
-          return false;
-        }
-        
-      }
-
 
           // Find USer BY level
     public function userLevel(){
@@ -226,24 +211,7 @@ class User{
     }
 
 
-    public function orders($data){
-      // Prepare Query
-      $this->db->query('INSERT INTO orders () 
-      VALUES ()');
-
-      // Bind Values
-      $this->db->bind(':name', $data['name']);
-      $this->db->bind(':phone', $data['phone']);
-      $this->db->bind(':address', $data['address']);
-      $this->db->bind(':password', $data['password']);
-      
-      //Execute
-      if($this->db->execute()){
-        return true;
-      } else {
-        return false;
-      }
-    }
+     
 
     
 }

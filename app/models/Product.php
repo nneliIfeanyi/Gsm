@@ -184,5 +184,14 @@ class Product {
       }
 
 
+        // Get All Users or Sellers
+    public function allUsers(){
+        $this->db->query("SELECT * FROM users ORDER BY id DESC ");
+  
+        $results = $this->db->resultset();
+  
+        return $results;
+      }
+
 
     }

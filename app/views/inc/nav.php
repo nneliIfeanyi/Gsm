@@ -1,5 +1,5 @@
             <div class="col-lg-3">
-                <h1 class="h2 pb-2 fw-bold">Products</h1>
+                <h1 class="h2 pb-2 fw-bold">All Categories</h1>
                 <ul class="list-unstyled templatemo-accordion">
                     <li class="pb-2">
                         <a class="collapsed d-flex justify-content-between h3 text-decoration-none" href="#">
@@ -25,21 +25,5 @@
                             <li><a class="text-decoration-none fs-6" href="<?=URLROOT?>/accessories/battery">Batteries</a></li>
                         </ul>
                     </li>
-                    <!--<li class="pb-2">
-                        <a class="collapsed d-flex justify-content-between h3 text-decoration-none" href="#">
-                            Phone Parts
-                            <i class="fa fa-fw fa-chevron-circle-down mt-1"></i>
-                        </a>
-                        <ul class="collapse show list-unstyled pl-3">
-                            <li><a class="text-decoration-none fs-6" href="<?=URLROOT?>/parts/lcd">Lcd/screen</a></li>
-                            <li><a class="text-decoration-none fs-6" href="<?=URLROOT?>/parts/panel">Panel/motherboard</a></li>
-                            <li><a class="text-decoration-none fs-6" href="<?=URLROOT?>/parts/downboard">Downboard</a></li>
-                            <li><a class="text-decoration-none fs-6" href="<?=URLROOT?>/parts/camera">Camera</a></li>
-                            <li><a class="text-decoration-none fs-6" href="<?=URLROOT?>/parts/fingerprint">Finger Print</a></li>
-                            <li><a class="text-decoration-none fs-6" href="<?=URLROOT?>/parts/pwrflex">Power Flex</a></li>
-                            <li><a class="text-decoration-none fs-6" href="<?=URLROOT?>/parts/others">Others</a></li>
-                            <li><a class="text-decoration-none fs-6" href="<?=URLROOT?>/parts/tools">Tools</a></li>
-                        </ul>
-                    </li>-->
                 </ul>
             </div>

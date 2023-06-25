@@ -1,35 +1,4 @@
 <?php require APPROOT . '/views/inc/header.php'; ?>
-
-<style>
-.cssmarquee {
-height: 50px;
-overflow:hidden;
-position: relative;
-}
-.cssmarquee h1 {
-font-size: .7em;
-position: absolute;
-width: 100%;
-height: 100%;
-margin: 0;
-line-height: 50px;
-text-align: left;
-transform:translateX(100%);
-animation: cssmarquee 12s linear infinite;
-}
-@keyframes cssmarquee {
-0% {
-transform: translateX(100%);
-}
-100% {
-transform: translateX(-100%);
-}
-}
-</style>
- 
-<div class="cssmarquee">
-<h1 class="text-success"><i class="fa fa-truck fa-s"></i>&nbsp;Free delivery only on Fridays for orders made before Friday...</h1>
-</div>
    
 <!-- Open Content -->
 <section class="">
@@ -171,10 +140,10 @@ transform: translateX(-100%);
 
 <div class="row">
 <div class="col d-grid">
-<a href="https://wa.me/8122321931?text=I%20am%20interested%20in%20buying%20this%20<?=URLROOT.'/'.'users'.'/'.'view_p'.'/'.$data['product']->id?>" class="btn btn-success btn-block"><i class="fa fa-whatsapp fa-fw"></i>Whatsapp</a>
+<a href="https://wa.me/<?= $data['seller']->phone ?>?text=I%20am%20interested%20in%20buying%20this%20<?=URLROOT.'/'.'users'.'/'.'view_p'.'/'.$data['product']->id?>" class="btn btn-success btn-block"><i class="fa fa-whatsapp fa-fw"></i>Whatsapp</a>
 </div>
 <div class="col d-grid">
-<a href="tel:08122321931" class="btn btn-outline-success btn-block"><i class="fa fa-phone fa-fw"></i>Call Now</a>
+<a href="tel:0<?= $data['seller']->phone ?>" class="btn btn-outline-success btn-block"><i class="fa fa-phone fa-fw"></i>Call Now</a>
 </div>
 </div>
 
@@ -213,10 +182,10 @@ transform: translateX(-100%);
 </div>
 
  <?php include APPROOT . '/views/inc/nav.php'; ?>
-      <div class="py-3 col-lg-9 bg-light mb-3">
+      <div class="py-3 col-lg-9 border mb-3">
         <div class="row text-center">
             <div class="col-lg-6 m-auto">
-                <img src="<?php echo URLROOT; ?>/img/cart.png" style="height: 100px;width: 150px;filter: invert(5.9%);">
+                <img src="<?php echo URLROOT; ?>/img/errands.png" style="height: 100px;width: 150px;">
                 <h1 class="h2 mt-2">We Run Errands</h1>
                  <p>
                     Couldn't find what you are looking for? Send us to the market.

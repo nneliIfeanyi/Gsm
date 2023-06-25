@@ -33,7 +33,7 @@
     }
 
 
-    public function uploads(){
+    public function shop(){
       if (!empty($products = $this->productModel->getAllProduct())) {
       
         $data = [
@@ -54,10 +54,8 @@
         ];
       }
 
-      $this->view('pages/uploads', $data);
+      $this->view('pages/shop', $data);
     }
-
-
     
 
 
@@ -70,6 +68,8 @@
 
       $this->view('pages/about', $data);
     }
+
+
 
 
     public function search_result(){

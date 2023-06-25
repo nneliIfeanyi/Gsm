@@ -2,7 +2,7 @@
 <div class="container">
 <div class="row">
   <div class="col-md-6 mb-5 mx-auto">
-    <div class="card card-body bg-light mt-5">
+    <div class="card card-body bg-light mt-3">
       <h2>Create An Account</h2>
       <p>Please fill this form to register with us</p>
       <form action="<?php echo URLROOT; ?>/users/register" method="post">

@@ -8,15 +8,15 @@
                     <ul class="list-unstyled text-light footer-link-list">
                         <li>
                             <i class="fa fa-map-marker fa-fw"></i>
-                            Block B, Murada Plaza, Suleja.
+                            Suleja, Abuja.
                         </li>
                         <li>
                             <i class="fa fa-phone fa-fw"></i>
-                            <a class="text-decoration-none" href="tel:010-020-0340">+2348122321931</a>
+                            <a class="text-decoration-none" href="tel:08122321931">+2348122321931</a>
                         </li>
                         <li>
                             <i class="fa fa-envelope fa-fw"></i>
-                            <a class="text-decoration-none" href="mailto:info@company.com">stanvicbest@gmail.com</a>
+                            <a class="text-decoration-none" href="mailto:stanvicbest@gmail.com">stanvicbest@gmail.com</a>
                         </li>
                     </ul>
                 </div>
