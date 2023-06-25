@@ -3,7 +3,7 @@
   <?php flash('post_message'); ?>
   <div class="row mb-3">
     <div class="col-md-6 mt-3">
-    <h1>Customer Reviews</h1>
+    <h1>Customer's Reviews</h1>
     </div>
     <div class="col-md-6">
       <a class="btn btn-primary pull-right" href="<?php echo URLROOT; ?>/posts/add"><i class="fa fa-pencil" aria-hidden="true"></i> Add Post</a>

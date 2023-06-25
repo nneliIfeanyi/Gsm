@@ -1,6 +1,6 @@
 <?php require APPROOT . '/views/inc/header.php'; ?>
 <div class="container">
-  <a href="<?php echo URLROOT; ?>" class="btn btn-light my-2"><i class="fa fa-backward" aria-hidden="true"></i> Back</a>
+  <a href="<?php echo URLROOT; ?>/posts" class="btn btn-light my-2"><i class="fa fa-backward" aria-hidden="true"></i> Back</a>
   <br>
   <h1 class="h2"><?php echo $data['post']->title; ?></h1>
   <div class="bg-secondary text-white p-2 mb-3">

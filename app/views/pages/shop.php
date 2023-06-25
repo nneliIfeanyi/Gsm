@@ -17,8 +17,6 @@
                         </li>
                     </ul>
                 </div>
-
-                <div class="mx-auto mt-2 container text-center"><?php flash('success'); ?></div>
                 <div class="mx-auto mt-2 container text-center"><?php flash('search_msg'); ?></div>
             </div>
 

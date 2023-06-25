@@ -81,7 +81,7 @@
         ];
 
         if (empty($data['search_text'])) {
-          redirect('pages');
+          redirect('pages/shop');
         }
 
         if ($products = $this->productModel->search_result($data)) {
@@ -97,14 +97,14 @@
             'title' => 'Search Results'
             
           ];
-          flash('search_msg', 'No match found');
-          redirect('pages');
+          flash('search_msg', 'No match found, type "samsung" for all samsung phones, or "infinix" for all infinix phones etc');
+          redirect('pages/shop');
         }
           
       }
      
 
-      redirect('pages');
+      redirect('pages/shop');
     }
 
     

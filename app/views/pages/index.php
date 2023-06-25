@@ -28,7 +28,7 @@ transform: translateX(-100%);
 </style>
  
 <div class="cssmarquee" style="background: ;">
-<h1 style="text-transform: lowercase;font-style: italic;">WELCOME TO <span class="text-success"><?=SITENAME?></span> E-SHOP</h1>
+<h1 style="text-transform: lowercase;font-style: italic;">WELCOME TO <span class="text-success"><?=SITENAME?></span> E-market</h1>
 </div>
 
 <?php include APPROOT . '/views/inc/showcase.php'; ?>

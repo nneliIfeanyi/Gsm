@@ -127,7 +127,7 @@ class Users extends Controller{
           // User Authenticated!
           $this->createUserSession($loggedInUser);
           flash('login_success', 'You are Logged in.');
-          redirect('admin');
+          redirect('posts/add');
          
         } else {
           $data['password_err'] = 'Password incorrect.';

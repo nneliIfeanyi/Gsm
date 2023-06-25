@@ -1,9 +1,6 @@
 <?php
   class Posts extends Controller{
     public function __construct(){
-      if(!isset($_SESSION['user_id'])){
-        redirect('users/login');
-      }
       // Load Models
       $this->postModel = $this->model('Post');
       $this->userModel = $this->model('User');
@@ -22,6 +19,9 @@
 
     // Show Single Post
     public function show($id){
+      if(!isset($_SESSION['user_id'])){
+        redirect('users/login');
+      }
       $post = $this->postModel->getPostById($id);
       $user = $this->userModel->getUserById($post->user_id);
 
@@ -35,6 +35,9 @@
 
     // Add Post
     public function add(){
+      if(!isset($_SESSION['user_id'])){
+        redirect('users/login');
+      }
       if($_SERVER['REQUEST_METHOD'] == 'POST'){
         // Sanitize POST
         $_POST  = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
@@ -84,6 +87,9 @@
 
     // Edit Post
     public function edit($id){
+      if(!isset($_SESSION['user_id'])){
+        redirect('users/login');
+      }
       if($_SERVER['REQUEST_METHOD'] == 'POST'){
         // Sanitize POST
         $_POST  = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
@@ -143,6 +149,9 @@
 
     // Delete Post
     public function delete($id){
+      if(!isset($_SESSION['user_id'])){
+        redirect('users/login');
+      }
       if($_SERVER['REQUEST_METHOD'] == 'POST'){
         //Execute
         if($this->postModel->deletePost($id)){

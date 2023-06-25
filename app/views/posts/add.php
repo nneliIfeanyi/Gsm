@@ -1,6 +1,6 @@
 <?php require APPROOT . '/views/inc/header.php'; ?>
 <div class="container">
-<a href="<?php echo URLROOT; ?>" class="btn btn-light mt-2"><i class="fa fa-backward" aria-hidden="true"></i> Back</a>
+<a href="<?php echo URLROOT; ?>/posts" class="btn btn-light mt-2"><i class="fa fa-backward" aria-hidden="true"></i> Back</a>
       <div class="card card-body bg-light mt-3">
         <h2>Add Post</h2>
         <p>Use the form below to create a review of our products and services and tell us how we can improve</p>
