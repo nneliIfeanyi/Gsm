@@ -71,9 +71,9 @@ transform: translateX(-100%);
         </div>
         <div class="row">
             <div class="col-12 col-md-4 p-5 ">
-                <a href="<?php echo URLROOT; ?>/phones/iphones"><img src="<?php echo URLROOT; ?>/img/fones3.jpg" class="rounded-circle img-fluid border"></a>
+                <a href="https://dematrixphones.com" target="blank"><img src="<?php echo URLROOT; ?>/img/fones3.jpg" class="rounded-circle img-fluid border"></a>
                 <h5 class="text-center mt-3 mb-3">iPhones</h5>
-                <p class="text-center"><a href="<?php echo URLROOT; ?>/phones/iphones" class="btn btn-success">Go Shop</a></p>
+                <p class="text-center"><a href="https://dematrixphones.com" target="_blank" class="btn btn-success">Go Shop</a></p>
             </div>
             <div class="col-12 col-md-4 p-5 ">
                 <a href="<?php echo URLROOT; ?>/accessories/power"><img src="<?php echo URLROOT; ?>/img/pwr2.png" class="rounded-circle img-fluid border"></a>
