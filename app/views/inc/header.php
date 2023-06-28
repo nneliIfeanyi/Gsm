@@ -7,7 +7,7 @@
 
     <link rel="apple-touch-icon" href="<?php echo URLROOT; ?>/img/apple-icon.png">
     <link rel="shortcut icon" type="image/x-icon" href="<?php echo URLROOT; ?>/img/favicon.ico">
-    
+   <link rel="stylesheet" href="<?php echo URLROOT; ?>/css/w3.css"> 
   <link rel="stylesheet" href="<?php echo URLROOT; ?>/css/bootstrap.min.css">
   <link rel="stylesheet" href="<?php echo URLROOT; ?>/css/templatemo.css">
   <link rel="stylesheet" href="<?php echo URLROOT; ?>/css/custom.css">

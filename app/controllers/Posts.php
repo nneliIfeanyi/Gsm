@@ -17,6 +17,17 @@
       $this->view('posts/index', $data);
     }
 
+
+     // Load All Posts
+    public function blog(){
+
+      $data = [
+       
+      ];
+      
+      $this->view('posts/blog', $data);
+    }
+
     // Show Single Post
     public function show($id){
       if(!isset($_SESSION['user_id'])){

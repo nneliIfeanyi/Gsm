@@ -71,19 +71,19 @@ transform: translateX(-100%);
         </div>
         <div class="row">
             <div class="col-12 col-md-4 p-5 ">
-                <a href="<?php echo URLROOT; ?>/phones/iphones"><img src="<?php echo URLROOT; ?>/img/fones3.jpg" class="rounded-circle img-fluid border"></a>
+                <a href="https://dematrixphones.com" target="blank"><img src="<?php echo URLROOT; ?>/img/fones3.jpg" class="rounded-circle img-fluid border"></a>
                 <h5 class="text-center mt-3 mb-3">iPhones</h5>
-                <p class="text-center"><a href="<?php echo URLROOT; ?>/phones/iphones" class="btn btn-success">Go Shop</a></p>
+                <p class="text-center"><a href="https://dematrixphones.com" target="_blank" class="btn btn-success">Go Shop</a></p>
             </div>
             <div class="col-12 col-md-4 p-5 ">
-                <a href="<?php echo URLROOT; ?>/accessories/power"><img src="<?php echo URLROOT; ?>/img/pwr2.png" class="rounded-circle img-fluid border"></a>
-                <h2 class="h5 text-center mt-3 mb-3">Power Banks</h2>
-                <p class="text-center"><a href="<?php echo URLROOT; ?>/accessories/power" class="btn btn-success">Go Shop</a></p>
+                <a href="<?php echo URLROOT; ?>/phones"><img src="<?php echo URLROOT; ?>/img/good.webp" class="rounded-circle img-fluid border"></a>
+                <h2 class="h5 text-center mt-3 mb-3">Android Devices</h2>
+                <p class="text-center"><a href="<?php echo URLROOT; ?>/phones" class="btn btn-success">Go Shop</a></p>
             </div>
             <div class="col-12 col-md-4 p-5 ">
-                <a href="<?php echo URLROOT; ?>/accessories/bluetooth"><img src="<?php echo URLROOT; ?>/img/pods.png" class="rounded-circle img-fluid border"></a>
-                <h2 class="h5 text-center mt-3 mb-3">Ear Pods</h2>
-                <p class="text-center"><a href="<?php echo URLROOT; ?>/accessories/bluetooth" class="btn btn-success">Go Shop</a></p>
+                <a href="<?php echo URLROOT; ?>/accessories"><img src="<?php echo URLROOT; ?>/img/pods.png" class="rounded-circle img-fluid border"></a>
+                <h2 class="h5 text-center mt-3 mb-3">Accessories</h2>
+                <p class="text-center"><a href="<?php echo URLROOT; ?>/accessories" class="btn btn-success">Go Shop</a></p>
             </div>
         </div>
     </section>
@@ -94,7 +94,7 @@ transform: translateX(-100%);
         <div class="row text-center">
             <div class="col-lg-6 m-auto">
                 <img src="<?php echo URLROOT; ?>/img/errands.png" style="height: 100px;width: 150px;">
-                <h1 class="h2 mt-2">We Run Errands</h1>
+                <h1 class="h2 mt-2"><span class="text-success"><?= SITENAME ?></span> Run Errands</h1>
                  <p>
                     Couldn't find what you are looking for? Send us to the market.
                 </p>
