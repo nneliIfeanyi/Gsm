@@ -9,14 +9,14 @@ class Accessory {
 
 
  public function allAccessories(){
-      $this->db->query("SELECT * FROM products WHERE category = 'accessories'");
+      $this->db->query("SELECT * FROM products WHERE category = 'accessories' ORDER BY id DESC");
         $results = $this->db->resultset();
   
         return $results;
     }
 
      public function charger(){
-      $this->db->query("SELECT * FROM products WHERE sub_cate = 'charger' ");
+      $this->db->query("SELECT * FROM products WHERE sub_cate = 'charger' ORDER BY id DESC ");
         $results = $this->db->resultset();
   
         return $results;
@@ -24,7 +24,7 @@ class Accessory {
 
 
      public function memory(){
-      $this->db->query("SELECT * FROM products WHERE sub_cate = 'external memory' ");
+      $this->db->query("SELECT * FROM products WHERE sub_cate = 'external memory' ORDER BY id DESC ");
         $results = $this->db->resultset();
   
         return $results;
@@ -32,21 +32,21 @@ class Accessory {
 
 
      public function powers(){
-      $this->db->query("SELECT * FROM products WHERE sub_cate = 'power bank' ");
+      $this->db->query("SELECT * FROM products WHERE sub_cate = 'power bank' ORDER BY id DESC ");
         $results = $this->db->resultset();
   
         return $results;
     }
 
      public function ba3(){
-      $this->db->query("SELECT * FROM products WHERE sub_cate = 'battery' ");
+      $this->db->query("SELECT * FROM products WHERE sub_cate = 'battery' ORDER BY id DESC ");
         $results = $this->db->resultset();
   
         return $results;
     }
 
      public function bluetooth(){
-      $this->db->query("SELECT * FROM products WHERE sub_cate = 'bluetooth device' ");
+      $this->db->query("SELECT * FROM products WHERE sub_cate = 'bluetooth device' ORDER BY id DESC ");
         $results = $this->db->resultset();
   
         return $results;

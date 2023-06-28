@@ -9,7 +9,7 @@ class Phone {
 
 
  public function allphones(){
-      $this->db->query("SELECT * FROM products WHERE category = 'mobile phone'");
+      $this->db->query("SELECT * FROM products WHERE category = 'mobile phone' ORDER BY id DESC");
         $results = $this->db->resultset();
   
         return $results;
@@ -18,7 +18,7 @@ class Phone {
 
      // Get Product By Brand new
     public function android(){
-      $this->db->query("SELECT * FROM products WHERE sub_cate = 'android device' ");
+      $this->db->query("SELECT * FROM products WHERE sub_cate = 'android device' ORDER BY id DESC ");
         $results = $this->db->resultset();
   
         return $results;
@@ -27,7 +27,7 @@ class Phone {
 
      // Get Product By second hand
     public function iphones(){
-      $this->db->query("SELECT * FROM products WHERE sub_cate = 'ios device' ");
+      $this->db->query("SELECT * FROM products WHERE sub_cate = 'ios device' ORDER BY id DESC ");
         $results = $this->db->resultset();
   
         return $results;
@@ -37,7 +37,7 @@ class Phone {
 
      // Get Product By london used
     public function button(){
-      $this->db->query("SELECT * FROM products WHERE sub_cate = 'feature phone' ");
+      $this->db->query("SELECT * FROM products WHERE sub_cate = 'feature phone' ORDER BY id DESC ");
         $results = $this->db->resultset();
   
         return $results;
