@@ -21,6 +21,9 @@
 <a class="nav-link" href="<?=URLROOT?>/pages/shop">Shop</a>
 </li>
 <li class="nav-item">
+<a class="nav-link" href="<?=URLROOT?>/pages/about">About</a>
+</li>
+<li class="nav-item">
 <a class="nav-link" href="<?=URLROOT?>/posts">Reviews</a>
 </li>
 
@@ -33,6 +36,9 @@
 </li>
 <li class="nav-item">
 <a class="nav-link" href="<?=URLROOT?>/pages/shop">Shop</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="<?=URLROOT?>/pages/about">About</a>
 </li>
 <li class="nav-item">
 <a class="nav-link" href="<?=URLROOT?>/posts">Reviews</a>
