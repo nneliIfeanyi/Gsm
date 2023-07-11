@@ -27,7 +27,7 @@ class Phone {
 
      // Get Product By second hand
     public function iphones(){
-      $this->db->query("SELECT * FROM products WHERE sub_cate = 'ios device' ORDER BY id DESC ");
+      $this->db->query("SELECT * FROM products WHERE sub_cate = 'ios device' AND id = '5' ORDER BY id DESC ");
         $results = $this->db->resultset();
   
         return $results;

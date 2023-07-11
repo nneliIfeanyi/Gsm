@@ -113,7 +113,7 @@ class Product {
 
     // Get All Products
     public function getProduct(){
-        $this->db->query("SELECT * FROM products ORDER BY id DESC LIMIT 8");
+        $this->db->query("SELECT * FROM products WHERE id = '5' ORDER BY id DESC LIMIT 12");
   
         $results = $this->db->resultset();
   
@@ -122,7 +122,7 @@ class Product {
 
        // Get All Products
     public function getAllProduct(){
-        $this->db->query("SELECT * FROM products ORDER BY id DESC");
+        $this->db->query("SELECT * FROM products WHERE id = '5' ORDER BY id DESC");
   
         $results = $this->db->resultset();
   

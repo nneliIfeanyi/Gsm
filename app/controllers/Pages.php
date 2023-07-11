@@ -2,8 +2,10 @@
   class Pages extends Controller {
 
     public $productModel;
+    public $postModel;
     public function __construct(){
       $this->productModel = $this->model('Product');
+      $this->postModel = $this->model('Post');
     }
     
 
@@ -60,10 +62,11 @@
 
 
      //====ABOUT PAGE VIEW DISPLAY
-    public function about(){
+     public function about(){
+      $posts = $this->postModel->getPosts();
       $data = [
-        'title' => 'Under Construction',
-        'description' => 'This view is still under construction.'
+        'title' => 'About Us',
+        'posts' => $posts
       ];
 
       $this->view('pages/about', $data);

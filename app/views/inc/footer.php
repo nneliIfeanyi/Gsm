@@ -82,7 +82,7 @@
                 <div class="row pt-2">
                     <div class="col-12">
                         <p class="text-left text-light">
-                            Copyright &copy; 2023 <?=SITENAME?>
+                            Copyright &copy; <?php echo date('Y');?> <?=SITENAME?>_Concepts
                         </p>
                     </div>
                 </div>

@@ -56,7 +56,8 @@
         $data = [
           'title' => trim($_POST['title']),
           'body' => trim($_POST['body']),
-          'user_id' => $_SESSION['user_id'],   
+          'user_id' => $_SESSION['user_id'], 
+          'category' => 'stanvic',  
           'title_err' => '',
           'body_err' => ''
         ];
