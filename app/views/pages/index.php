@@ -31,7 +31,7 @@ transform: translateX(-100%);
 <h1 style="text-transform: lowercase;font-style: italic;">WELCOME TO <span class="text-success"><?=SITENAME?></span> E-market</h1>
 </div>
 
-<?php include APPROOT . '/views/inc/showcase.php'; ?>
+<?php //include APPROOT . '/views/inc/showcase.php'; ?>
 
     <!-- Start Content -->
 <div class="container py-3">
